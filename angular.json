@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"EconBto": {
+		"PrenatalTestCostAnalysis": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
@@ -17,7 +17,7 @@
 				"build": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/econ-bto",
+						"outputPath": "dist/prenatal-test-cost-analysis",
 						"index": "src/index.html",
 						"browser": "src/main.ts",
 						"polyfills": [
@@ -61,10 +61,10 @@
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "EconBto:build:production"
+							"buildTarget": "PrenatalTestCostAnalysis:build:production"
 						},
 						"development": {
-							"buildTarget": "EconBto:build:development"
+							"buildTarget": "PrenatalTestCostAnalysis:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
@@ -72,7 +72,7 @@
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"buildTarget": "EconBto:build"
+						"buildTarget": "PrenatalTestCostAnalysis:build"
 					}
 				},
 				"test": {
