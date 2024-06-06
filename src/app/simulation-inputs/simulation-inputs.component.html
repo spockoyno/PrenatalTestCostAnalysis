@@ -1,0 +1,254 @@
+<mat-card>
+  <div class="card-gradient-patch-violet"></div>
+  <mat-card-header>
+    <mat-card-title>
+      <div class="title-wrapper">Simulation inputs</div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+    <form [formGroup]="form" class="sim-inputs-main">
+
+
+      <div class="sim-input-panel">
+
+
+
+
+        <ng-container *ngIf="this.table as tab">
+          <table mat-table [dataSource]="tab" class="success-table">
+
+
+            <ng-container matColumnDef="Variable">
+              <th mat-header-cell *matHeaderCellDef class="first-col">
+                Variable
+              </th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.inputName }}
+              </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Input">
+              <th mat-header-cell *matHeaderCellDef >
+                <div class="header-content">
+                  Range
+                </div>
+
+              </th>
+
+
+              <td mat-cell *matCellDef="let row">
+                <ng-container *ngIf="row.pipeType=== '%'">
+                  <div class="custom-theme">
+
+                    <mat-slider
+                      min="0.002"
+                      max="1"
+                      step="0.002"
+                    >
+                      <input matSliderStartThumb [value]="row.controlMin.value"
+                             [formControl]="row.controlMin"
+                      >
+                      <input matSliderEndThumb [value]="row.controlMax.value"
+                             [formControl]="row.controlMax"
+                      >
+                    </mat-slider>
+
+
+                  </div>
+
+
+                </ng-container>
+
+                <ng-container *ngIf="row.pipeType=== '$'">
+                  <div class="custom-theme">
+                    <mat-slider
+                      min="0"
+                      max="10000"
+                      step="1"
+                    >
+                      <input matSliderStartThumb [value]="row.controlMin.value"
+                             [formControl]="row.controlMin"
+                      >
+                      <input matSliderEndThumb [value]="row.controlMax.value"
+                             [formControl]="row.controlMax"
+                      >
+                    </mat-slider>
+                  </div>
+
+
+                </ng-container>
+              </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Min">
+              <th mat-header-cell class="right-align" *matHeaderCellDef>
+                Min
+              </th>
+              <td mat-cell *matCellDef="let row" class="right-align">
+                <span *ngIf="row.pipeType=== '%'">{{ row.controlMin.value | percent }}</span>
+                <span *ngIf="row.pipeType === '$'">{{ row.controlMin.value | currency:'USD':'symbol':'1.0-0' }}</span>
+              </td>
+
+
+            </ng-container>
+
+
+            <ng-container matColumnDef="Mid">
+              <th mat-header-cell class="right-align" *matHeaderCellDef>
+                Mid
+              </th>
+              <td mat-cell *matCellDef="let row" class="right-align">
+                <span
+                  *ngIf="row.pipeType=== '%'">{{ (row.controlMin.value + row.controlMax.value) / 2 | percent }}</span>
+                <span
+                  *ngIf="row.pipeType === '$'">{{ (row.controlMin.value + row.controlMax.value) / 2 | currency:'USD':'symbol':'1.0-0' }}</span>
+              </td>
+
+            </ng-container>
+
+
+            <ng-container matColumnDef="Max">
+              <th mat-header-cell class="right-align" *matHeaderCellDef>
+                Max
+              </th>
+              <td mat-cell *matCellDef="let row" class="right-align">
+                <span *ngIf="row.pipeType=== '%'">{{ row.controlMax.value | percent }}</span>
+                <span *ngIf="row.pipeType === '$'">{{ row.controlMax.value | currency:'USD':'symbol':'1.0-0' }}</span>
+              </td>
+
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
+
+
+          </table>
+
+        </ng-container>
+
+
+      </div>
+
+
+    </form>
+
+
+  </mat-card-content>
+
+  <mat-card-footer>
+
+    <div class="bottom-buttons">
+
+      <!--    <mat-divider></mat-divider>-->
+   <button mat-flat-button class="rounded-button-small"
+           color = "accent"
+           matTooltip="Reset to initial ranges"
+           [matTooltipShowDelay]="1"
+                (click)="resetClick()"> RANGES
+          <mat-icon  class="large-icon" >refresh</mat-icon>
+        </button>
+
+      <div class="quantile-input">
+
+
+        <table mat-table [dataSource]="tableQuantitle">
+
+          <!-- Define Columns -->
+          <ng-container matColumnDef="Draws">
+            <th mat-header-cell *matHeaderCellDef class="success-table">
+              Draws
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-form-field class="white-backgrounded-field">
+                <!--          <mat-label> </mat-label>-->
+                <input matInput [formControl]="controlsForm.controls.drawsCount" type="number">
+              </mat-form-field>
+
+
+            </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="Quantile">
+            <th mat-header-cell *matHeaderCellDef>
+              Quantile .01 to .5
+            </th>
+            <td mat-cell *matCellDef="let row">
+
+
+              <div class="custom-theme">
+                <mat-slider
+                  [min]="row.limits[0]"
+                  [max]="row.limits[1]"
+                  [step]="0.01"
+                  color="primary"
+                >
+                  <input matSliderThumb [value]="row.sliderInput.value"
+                         [formControl]="row.sliderInput"
+                         class="slide"
+                  >
+                </mat-slider>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Low">
+            <th mat-header-cell *matHeaderCellDef>
+              Low
+            </th>
+
+            <td mat-cell *matCellDef="let row">
+
+
+              <app-hover-editable-field [valueControl]="row.sliderInput"
+                                        [limits]= "tableQuantitle[0].limits"></app-hover-editable-field>
+
+            </td>
+
+          </ng-container>
+
+          <ng-container matColumnDef="High">
+            <th mat-header-cell *matHeaderCellDef>
+              High
+            </th>
+
+            <td mat-cell *matCellDef="let row"
+                matTooltip="non-input"
+                [matTooltipShowDelay]="15"
+                [matTooltipPosition]="positionOptions[0]"
+
+            >
+             {{ 1 - row.sliderInput.value | number:'1.2-2' }}
+            </td>
+
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="columnsQuantile"></tr>
+          <tr mat-row *matRowDef="let row; columns: columnsQuantile;"></tr>
+
+        </table>
+
+      </div>
+
+      <div class="draws-simulate-action">
+
+<!--<app-hover-editable-field [valueControl]="valueControl"></app-hover-editable-field>-->
+
+
+
+        <button mat-flat-button color = "accent" class="rounded-button"
+                (click)="runClick()">SIMULATE
+          <mat-icon  class="large-icon" >play_arrow</mat-icon>
+        </button>
+
+      </div>
+
+
+    </div>
+  </mat-card-footer>
+</mat-card>

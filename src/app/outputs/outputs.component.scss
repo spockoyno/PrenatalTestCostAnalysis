@@ -1,0 +1,67 @@
+
+.outer-card {
+  margin-left: 15px;
+  width: 80%;
+  min-width: 420px;
+  max-width: 452px;
+   max-height: 570px;
+  min-height: 570px;
+}
+
+//.outer-card mat-card-header {
+//  background-color: #00796B;  // Green background for outer card header
+//  color: white;  // White text for the header
+//}
+//
+//.outer-card .mat-card-title,
+//.outer-card .mat-card-subtitle {
+//  color: inherit;  // Inherits white color from the card header
+//}
+
+/* Styling for the card content area, which includes Plotly plot and the inner card */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Aligns children (plot and card) side by side */
+  align-items: start; /* Aligns items at the top, useful if they have different heights */
+}
+
+#plotContainer {
+  flex: 1; /* Allows the plot container to grow and take available space */
+  min-width: 300px; /* Ensures the plot container has a minimum width */
+  //min-height: 560px;
+}
+
+
+//}
+
+.saved-content {
+  display: flex;
+  align-items: center;  // Ensure vertical alignment to the center
+  justify-content: flex-start;  // Align items to the start of the container
+  flex-direction: row;  // Lay out items horizontally
+  margin-top: 20px;  // Top margin for spacing
+  margin-left: 100px;
+  margin-right: 50px;
+  margin-bottom: 40px;
+  //gap: 15px;  // Space between elements
+}
+
+.saved-content span {
+  font-size: 20px;  // Uniform font size for all spans
+  font-weight: bold;  // Bold text for better visibility
+  color: #36454F;  // Consistent color for text
+}
+
+.saved-content span:first-child {
+  flex: 0 0 auto;  // Prevent "Saved" from growing or shrinking
+  margin-right: 20px;  // Right margin only for the "Saved" label
+  white-space: nowrap;  // Prevent "Saved" from wrapping to a new line
+}
+
+.saved-content .value {
+  flex: 1;  // Allow values to grow and fill available space
+  color: #36454F;  // Ensure values are the specified color
+  text-align: center;  // Center-align values for a balanced appearance
+  min-width: 40px;  // Minimum width to handle small values
+}

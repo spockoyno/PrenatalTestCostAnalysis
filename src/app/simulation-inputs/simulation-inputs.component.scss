@@ -1,0 +1,128 @@
+//.sim-inputs-main {
+
+
+.sim-input-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  gap: 20px;
+  align-items: center;
+}
+
+
+mat-slider {
+  width: 250px;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.first-col {
+  width: 200px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+mat-card {
+  //margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+   flex-grow: 1; /* This will make the content take up all available space */
+  overflow: auto; /* In case content is longer than the available space */
+
+  margin-right: 20px;
+  width: 80%;
+  min-width: 850px;
+  max-width: 850px;
+  max-height: 620px;
+  min-height: 620px;
+}
+//.mat-card-content {
+//  flex-grow: 1; /* This will make the content take up all available space */
+//  overflow: auto; /* In case content is longer than the available space */
+//}
+.rounded-button {
+    border-radius: 50px; /* You can adjust the radius as needed */
+  width: 20%;
+}
+
+.rounded-button-small {
+  margin-top: 10px;
+  border-radius: 50px; /* You can adjust the radius as needed */
+  width: 15%;
+}
+
+ .input-col{
+   display: flex;
+ }
+
+
+.bottom-buttons{
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  margin-left: 15px;
+  gap: 20px;
+
+  //margin-bottom: auto;
+  //margin-left: auto;
+}
+
+.draws-simulate-action{
+  display: flex;
+  margin-top:  15px;
+  //margin-left: 450px;
+  justify-content: flex-end;
+  margin-right: 25px;
+  //gap: 450px;
+}
+.quantile-input{
+  display: flex;
+  //min-width: 675px;
+  max-width: 770px;
+}
+
+.sim-button{
+  display: flex;
+  margin-left: 45px;
+}
+
+
+.mat-form-field{
+  width: 120px !important;
+}
+
+.large-icon {
+  //font-size:24px !important; //make it bigger, the default being 24px.
+  //width:24px;                //Do not forget to adjust the
+  //height:24px;
+  //line-height: 24px; // DO
+  font-weight: bold;
+}
+
+/* Styles.css or in your component-specific CSS file */
+.hover-editable {
+  font-family: 'Roboto', sans-serif; /* Sets the font family */
+  font-size: 20px; /* Sets the font size, adjust as needed */
+  width: auto;
+  max-width: 100px;
+  cursor: pointer; /* Optional, shows a pointer cursor on hover */
+  text-align: center;
+
+  /* Center text vertically */
+  display: flex;
+  align-items: center;
+}

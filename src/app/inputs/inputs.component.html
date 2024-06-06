@@ -1,0 +1,102 @@
+<mat-card>
+  <div class="card-gradient-patch-violet"></div>
+  <mat-card-header>
+    <mat-card-title>
+      <div class="title-wrapper">Sensitivity inputs</div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+
+    <form [formGroup]="form">
+      <div class="inputs-main">
+
+
+        <ng-container *ngIf="this.table as tab">
+          <table mat-table [dataSource]="tab" class="success-table">
+
+
+            <ng-container matColumnDef="Variable">
+              <th mat-header-cell *matHeaderCellDef class="first-col">
+                Variable
+              </th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.inputName }}
+              </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Input">
+              <th mat-header-cell *matHeaderCellDef class="input-col">
+                <div class="header-content">
+                  <span>Input</span>
+                </div>
+              </th>
+
+
+              <td mat-cell *matCellDef="let row">
+
+                <div class="custom-theme">
+                  <mat-slider
+                    [min]="row.min"
+                    [max]="row.max"
+                    [step]="row.step"
+                  >
+                    <input matSliderThumb [value]="row.control.value"
+                           [formControl]="row.control"
+                           class="slide"
+                    >
+
+
+                  </mat-slider>
+                </div>
+
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Value">
+              <th mat-header-cell *matHeaderCellDef>
+                Value
+              </th>
+              <td mat-cell *matCellDef="let row" class="right-align">
+                <span *ngIf="row.pipeType=== '%'">{{ row.control.value | percent }}  </span>
+                <span *ngIf="row.pipeType === '$'">{{ row.control.value | currency:'USD':'symbol':'1.0-0' }}</span>
+              </td>
+
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
+
+
+          </table>
+
+        </ng-container>
+
+
+
+      </div>
+
+    </form>
+
+
+
+
+    <button mat-flat-button color = "accent"
+            class="rounded-button"
+            matTooltip="Reset to initial values"
+            [matTooltipShowDelay]="1"
+            (click)="resetClick()">INPUTS
+      <mat-icon class="large-icon" >refresh</mat-icon>
+    </button>
+
+       <div class = 'bottom'>
+         <span>Source: </span>
+      <a href="https://www.tandfonline.com/doi/full/10.1080/13696998.2022.2053384" target="_blank" rel="noopener noreferrer" class="reference">Riku S. et al. (2022)</a>
+    </div>
+
+  </mat-card-content>
+</mat-card>
+
+

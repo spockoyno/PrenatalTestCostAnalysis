@@ -1,0 +1,19 @@
+
+
+<span *ngIf="!isHovering && !isFocused"
+      (mouseenter)="handleMouseEnter()"
+      class="hover-editable"
+      [ngStyle]="{'max-width.px': inputMaxWidth}">
+  {{ formattedValue || valueControl.value }}
+</span>
+
+<input *ngIf="isHovering || isFocused"
+       [min]="limits[0]"
+       [max]="limits[1]"
+       class="hover-editable"
+       [formControl]="valueControl"
+       (focus)="handleFocus()"
+       (blur)="handleBlur()"
+       (mouseenter)="handleMouseEnter()"
+       (mouseleave)="handleMouseLeave()"
+       [ngStyle]="{'max-width.px': inputMaxWidth}">

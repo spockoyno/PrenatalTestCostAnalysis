@@ -1,0 +1,50 @@
+{
+  "name": "econ-bto",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^17.3.0",
+    "@angular/cdk": "^17.3.3",
+    "@angular/common": "^17.3.0",
+    "@angular/compiler": "^17.3.0",
+    "@angular/core": "^17.3.0",
+    "@angular/forms": "^17.3.0",
+    "@angular/material": "^17.3.3",
+    "@angular/platform-browser": "^17.3.0",
+    "@angular/platform-browser-dynamic": "^17.3.0",
+    "@angular/router": "^17.3.0",
+    "angular-plotly.js": "^5.2.2",
+    "chance": "^1.1.11",
+    "d3-array": "^3.2.4",
+    "lodash": "^4.17.21",
+    "mathjs": "^12.4.1",
+    "plotly.js-dist-min": "^2.30.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.3",
+    "@angular/cli": "^17.3.3",
+    "@angular/compiler-cli": "^17.3.0",
+    "@types/chance": "^1.1.6",
+    "@types/d3-array": "^3.2.1",
+    "@types/jasmine": "~5.1.0",
+    "@types/plotly.js-dist-min": "^2.3.4",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "schematics-scss-migrate": "^2.3.17",
+    "typescript": "~5.4.2"
+  }
+}

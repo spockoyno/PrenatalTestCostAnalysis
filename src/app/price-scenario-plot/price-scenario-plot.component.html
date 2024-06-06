@@ -1,0 +1,38 @@
+
+<mat-card class="outer-card">
+    <div class="card-gradient-patch"></div> <!-- This should be first -->
+  <mat-card-header>
+    <mat-card-title >
+      <div class="card-header">
+      <div class="title-wrapper">  Price scenarios
+
+
+
+      </div>
+        <button mat-button
+                class = "helper-button"
+                aria-label="Example icon button with a home icon"
+                (click)="openDialog()">
+<!--                    <mat-icon>question_mark</mat-icon>-->
+          <mat-icon>help_outline</mat-icon>
+<!--          <span class="material-symbols-outlined">-->
+<!--help-->
+<!--</span>-->
+        </button>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+
+   <div class="saved-content">
+          <span>Price at 50%</span>
+          <span class="value">{{(this.showTop|async)?.midPrice | currency: 'USD':'symbol':'1.0-0'}}</span>
+        </div>
+
+
+  <mat-card-content class="card-content">
+    <div #plotContainer></div>
+
+
+  </mat-card-content>
+</mat-card>
+

@@ -1,0 +1,54 @@
+<mat-card>
+  <div class="card-gradient-patch"></div> <!-- This should be first -->
+  <mat-card-header>
+
+
+    <mat-card-title>
+      <div class="card-header">
+        <div class="title-wrapper">Simulated costs: Base - Reflex</div>
+
+        <mat-form-field>
+          <mat-label>Summary</mat-label>
+          <mat-select [formControl]="summaries" multiple>
+            @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{ topping }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-title>
+
+
+  </mat-card-header>
+
+  <mat-card-content>
+
+
+    <div #plotContainer></div>
+
+
+  </mat-card-content>
+
+  <div class="plot-slider" *ngIf="sliderVisible">
+    <div class="custom-theme">
+      <mat-slider color="warn"
+                  [min]="plotRange.controls.lower.value "
+                  [max]="plotRange.controls.upper.value"
+                  step="0.01"
+                  matTooltip="Display range"
+                  [matTooltipShowDelay]="500"
+                  aria-label="Button that displays a tooltip in various positions"
+      >
+        <input matSliderStartThumb [value]="plotRange.controls.min.value"
+               [formControl]="plotRange.controls.min"
+        >
+        <input matSliderEndThumb [value]="plotRange.controls.max.value"
+               [formControl]="plotRange.controls.max"
+        >
+      </mat-slider>
+
+    </div>
+  </div>
+
+
+</mat-card>

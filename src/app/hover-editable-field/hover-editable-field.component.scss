@@ -1,0 +1,20 @@
+
+
+.hover-editable {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  width: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: 2px solid transparent;
+}
+
+input.hover-editable:hover,
+input.hover-editable:focus {
+  outline: 2px solid #673AB7;
+}

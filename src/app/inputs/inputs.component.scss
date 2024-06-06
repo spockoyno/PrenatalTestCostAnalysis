@@ -1,0 +1,93 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Styles for your component */
+.right-align {
+  text-align: right;
+}
+.slide{
+  width: 100%;
+}
+mat-slider {
+  width: 250px;
+}
+
+.first-col{
+  min-width: 200px;
+
+
+}
+
+th.mat-header-cell {
+  box-sizing: border-box;
+}
+
+
+
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.white-background {
+  background-color: white !important; /* Ensures override of Material styles */
+}
+
+mat-form-field .mat-input-element.white-background {
+  background-color: white !important;
+}
+
+.inputs-main{
+  display: flex;
+  flex-direction: column;
+  //margin-right: 160px;
+}
+
+
+mat-card {
+  ////margin-left: 15px;
+  //width: 80%;
+  //min-width: 850px;
+  //max-width: 850px;
+  max-height: 570px;
+  min-height: 570px;
+}
+
+.rounded-button {
+  margin-top: 10px;
+  //margin-left: -5px;
+    border-radius: 50px; /* You can adjust the radius as needed */
+  width: 20%;
+}
+.bottom {
+  display: flex;
+  flex-direction: row;
+    margin-left: 55%;
+  margin-top: 28%;
+  gap: 10px;
+}
+
+//.reference{
+//  display: flex;
+//  margin-left: 70%;
+//  margin-top: 20%;
+//
+//
+//}
+
+.large-icon {
+  //font-size:24px !important; //make it bigger, the default being 24px.
+  //width:24px;                //Do not forget to adjust the
+  //height:24px;
+  //line-height: 24px; // DO
+  font-weight: bold;
+}
+

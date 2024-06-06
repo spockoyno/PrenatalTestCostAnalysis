@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use "@angular/material" as mat;
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+//@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  background-color: #f2f2f2;
+}
+
+
+$dark-purple: #673AB7;
+$light-purple: #E0D5F3;
+$old-dark-purple: #9575CD;
+//$old-lighh-purple:
+$charcoal: #36454F;
+$blueish-dark : #2B9CB5;
+$blueish-light : #D2ECF3;
+
+
+// Define a custom color palette from black to light grey
+$black-gray-palette: (
+  50: $light-purple,
+  100: #e6e6e6,
+  200: #cccccc,
+  300: #b3b3b3,
+  400: #999999,
+  500: #808080,  // Midpoint might be regular grey
+  600: #666666,
+  700: $dark-purple,
+  800: $charcoal,
+  900: #1a1a1a,
+  A100: #e6e6e6,
+  A200: #cccccc,
+  A400: #999999,
+  A700: #666666,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: black,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: black,
+    A400: black,
+    A700: white,
+  )
+);
+
+
+
+//$custom-primary: mat.define-palette(mat.$deep-purple-palette, 200, 50);
+
+$custom-primary: mat.define-palette($black-gray-palette, 700, 50);
+$custom-accent: mat.define-palette(mat.$amber-palette, 500, 100);
+$custom-warn: mat.define-palette($black-gray-palette, 600, 200);
+
+
+
+$custom-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $custom-primary,
+      accent: $custom-accent,
+      warn: $custom-warn,
+
+    ),
+  )
+);
+
+.custom-theme {
+  @include mat.all-component-themes($custom-theme);
+}
+
+//#7E57C2
+.panel-title{
+  color: $charcoal;
+   font-size: 25px; /* Adjust size as needed */
+  font-weight: bold;
+
+}
+
+mat-slider {
+  width: 250px;
+}
+
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: white !important;
+}
+
+// Manipulate background color on hover and focus
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+.card-gradient-patch {
+  width: 100%; /* Make sure the gradient covers the full width of the header */
+  height: 7px; /* Adjust height as needed */
+  background: linear-gradient(to right, $blueish-dark, $blueish-light);
+
+}
+.card-gradient-patch-violet {
+  width: 100%; /* Make sure the gradient covers the full width of the header */
+  height: 7px; /* Adjust height as needed */
+  background:  linear-gradient(to right, $dark-purple, $light-purple);
+
+}
+
+
+.title-wrapper {
+    font-size: 24px;
+    color: $charcoal; // Custom color
+}
+
+// background:  linear-gradient(to right, $dark-purple, rgba(103, 58, 183, 0.7), $light-purple);
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.rounded-button {
+    border-radius: 20px; /* You can adjust the radius as needed */
+}
