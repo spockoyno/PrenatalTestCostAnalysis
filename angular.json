@@ -17,7 +17,7 @@
 				"build": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/prenatal-test-cost-analysis",
+						"outputPath": "docs",
             "baseHref": "/PrenatalTestCostAnalysis/",
 						"index": "src/index.html",
 						"browser": "src/main.ts",
