@@ -78,6 +78,7 @@ export class PriceScenarioPlotComponent implements AfterViewInit {
     xaxis: {
       title: {text: 'Screen Price $'},
       range: [0, 5],
+      zeroline: false,
       autorange: false,
       titlefont: { // Optionally, override font settings for specific elements
         family: 'Roboto, sans-serif',
@@ -88,6 +89,8 @@ export class PriceScenarioPlotComponent implements AfterViewInit {
     },
     yaxis: {
       title: {text: 'Cost $M'},
+      showline: false,
+
       range: [0, 5],
       autorange: false,
       titlefont: { // Optionally, override font settings for specific elements

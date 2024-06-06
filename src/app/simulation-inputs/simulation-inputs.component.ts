@@ -129,7 +129,7 @@ export class SimulationInputsComponent implements OnInit {
 
 
     const ctrl = this.form.controls
-    const b = inter.initialIntervals
+
 
 
     this.table = [{

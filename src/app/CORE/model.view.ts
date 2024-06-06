@@ -59,7 +59,7 @@ export interface SimulationInputs {
 }
 
 export const simulationInputs: SimulationInputs = {
-  drawsCount: 100_000,
+  drawsCount: 10_000,
   quantile: 0.05,
 }
 

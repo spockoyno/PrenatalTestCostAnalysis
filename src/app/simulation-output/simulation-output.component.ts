@@ -37,7 +37,7 @@ import {MatButtonModule} from '@angular/material/button';
 export class SimulationOutputComponent implements AfterViewInit {
   @ViewChild('plotContainer') plotContainer!: ElementRef;
 
-  // summaries = new FormControl(['Low', 'Median', 'High']);
+
    summaries = new FormControl(['Low','High']);
   toppingList: string[] = ['Low', 'Mean', 'Median', 'High'];
 
@@ -78,7 +78,7 @@ export class SimulationOutputComponent implements AfterViewInit {
 
   };
 
-  plotRange = this.fb.nonNullable.group({
+  plotRangeInput = this.fb.nonNullable.group({
     lower: 0,
     upper: 1,
     min: 0,
@@ -86,6 +86,8 @@ export class SimulationOutputComponent implements AfterViewInit {
   })
 
   sliderVisible: boolean = false;
+
+  labelHeight: number = 1
 
   constructor(public inter: InteractorService, public fb: FormBuilder, public cdr: ChangeDetectorRef, public ngZone: NgZone) {
 
@@ -113,11 +115,11 @@ export class SimulationOutputComponent implements AfterViewInit {
     this.inter.simulatedSummaries$().subscribe(d => {
       this.addStatsSummaries(d, this.summaries.getRawValue())
     })
-    this.plotRange.valueChanges.subscribe(val => {
+    this.plotRangeInput.valueChanges.subscribe(val => {
 
-      const data = this.plotRange.getRawValue()
+      const data = this.plotRangeInput.getRawValue()
 
-      this.updatePlotRange(data.min, data.max)
+      this.updatePlotRangeX(data.min, data.max)
 
     });
 
@@ -135,17 +137,27 @@ export class SimulationOutputComponent implements AfterViewInit {
     this.data = [{...this.data[0], x: sims}]
 
 
-    this.layout = {...this.layout, shapes: [], annotations: [], xaxis: {...this.layout.xaxis, autorange: true}}
+    this.layout = {...this.layout, shapes: [], annotations: [], xaxis: {...this.layout.xaxis, autorange: true},
+      yaxis: {...this.layout.yaxis, autorange: true}}
 
     PlotlyJS.react(this.plotContainer.nativeElement, this.data, this.layout, this.config)
 
+
+
+    this.labelHeight =  this.plotContainer.nativeElement.layout.yaxis.range[1];
+
+    this.layout = {...this.layout}; // Clone the layout object
+    this.layout.yaxis = {...this.layout.yaxis, range: [0, this.labelHeight * 1.1], autorange: false};
+
+
+    PlotlyJS.relayout(this.plotContainer.nativeElement, this.layout)
 
   }
 
 
   createAnnotation(x: number): Partial<Plotly.Annotations> {
 
-    const cur = formatCurrency(x, "en-US", "$", 'USD', '1.2-2')
+
     const moneyText = `${round2(x)}`
     return {
       x: x,
@@ -165,13 +177,13 @@ export class SimulationOutputComponent implements AfterViewInit {
     };
   }
 
-  createLineShape(x: number, maxY: number): Partial<Plotly.Shape> {
+  createLineShape(x: number): Partial<Plotly.Shape> {
     return {
       type: 'line',
       x0: x,
       x1: x,
       y0: 0,
-      y1: maxY * 1.1, // Extend the line to 110% of the max Y value
+      y1: this.labelHeight, // Extend the line to 110% of the max Y value
       xref: 'x',
       yref: 'y',
       opacity: 0.25,
@@ -209,15 +221,15 @@ export class SimulationOutputComponent implements AfterViewInit {
       return;
     }
 
-    const gd = this.plotContainer.nativeElement;
-    const maxY: number = gd.layout.yaxis.range[1];
+
+
 
     // Inner function to add summary details
 
     this.layout.shapes = []
     this.layout.annotations = []
     const addSummary = (val: number, name: string) => {
-      this.layout.shapes!.push(this.createLineShape(val, maxY));
+      this.layout.shapes!.push(this.createLineShape(val));
       this.layout.annotations!.push(this.createLabel(val, name), this.createAnnotation(val));
     };
 
@@ -249,13 +261,13 @@ export class SimulationOutputComponent implements AfterViewInit {
 
 
     const range = this.plotContainer.nativeElement.layout.xaxis.range;
-    this.plotRange.setValue({lower: range[0], upper: range[1], min: range[0], max: range[1],});
+    this.plotRangeInput.setValue({lower: range[0], upper: range[1], min: range[0], max: range[1],});
 
 
   }
 
 
-  private updatePlotRange(min: number, max: number) {
+  private updatePlotRangeX(min: number, max: number) {
     // Clone the layout object to ensure change detection picks up the change
     this.layout = {...this.layout}; // Clone the layout object
     this.layout.xaxis = {...this.layout.xaxis, range: [min, max], autorange: false};

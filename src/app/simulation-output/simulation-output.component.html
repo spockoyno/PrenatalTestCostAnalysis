@@ -32,18 +32,18 @@
   <div class="plot-slider" *ngIf="sliderVisible">
     <div class="custom-theme">
       <mat-slider color="warn"
-                  [min]="plotRange.controls.lower.value "
-                  [max]="plotRange.controls.upper.value"
+                  [min]="plotRangeInput.controls.lower.value "
+                  [max]="plotRangeInput.controls.upper.value"
                   step="0.01"
                   matTooltip="Display range"
                   [matTooltipShowDelay]="500"
                   aria-label="Button that displays a tooltip in various positions"
       >
-        <input matSliderStartThumb [value]="plotRange.controls.min.value"
-               [formControl]="plotRange.controls.min"
+        <input matSliderStartThumb [value]="plotRangeInput.controls.min.value"
+               [formControl]="plotRangeInput.controls.min"
         >
-        <input matSliderEndThumb [value]="plotRange.controls.max.value"
-               [formControl]="plotRange.controls.max"
+        <input matSliderEndThumb [value]="plotRangeInput.controls.max.value"
+               [formControl]="plotRangeInput.controls.max"
         >
       </mat-slider>
 
