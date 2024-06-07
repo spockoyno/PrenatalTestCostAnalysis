@@ -237,11 +237,11 @@
 
       <div class="draws-simulate-action">
 
-<!--<app-hover-editable-field [valueControl]="valueControl"></app-hover-editable-field>-->
 
-
-
-        <button mat-flat-button color = "accent" class="rounded-button"
+        <button mat-flat-button color = "accent"
+                class="rounded-button"
+                matTooltip="draw costs at current inputs"
+                [matTooltipShowDelay]="500"
                 (click)="runClick()">SIMULATE
           <mat-icon  class="large-icon" >play_arrow</mat-icon>
         </button>

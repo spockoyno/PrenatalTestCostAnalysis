@@ -25,13 +25,12 @@ export class HoverEditableFieldComponent implements OnInit {
   @Input() limits: number[] = [0, 1]
 
   @Input() format: 'currency' | 'percent' | 'number' | null = 'number';
-  @Input() currencyCode: string = 'USD'; // Default to USD, adjust as needed
-  @Input() locale: string = 'en-US'; // Default locale, adjust as needed
 
 
-
+  private hoverTimer: any = null;
   formattedValue: string | null = null;
 
+  timeOut: number = 200
   constructor(private currencyPipe: CurrencyPipe, private percentPipe: PercentPipe, private decimalPipe: DecimalPipe) {}
 
   ngOnInit(): void {
@@ -44,37 +43,29 @@ export class HoverEditableFieldComponent implements OnInit {
   private updateFormattedValue(value: any) {
     if (value === null || value === undefined) {
       this.formattedValue = null;
+      this.isHovering = false
       return;
     }
 
     switch (this.format) {
       case 'currency':
-        this.formattedValue = this.currencyPipe.transform(value, this.currencyCode, 'symbol', '1.2-2', this.locale);
+        this.formattedValue = this.currencyPipe.transform(value, 'USD', 'symbol', '1.0-0', 'en-US');
         break;
       case 'percent':
-        this.formattedValue = this.percentPipe.transform(value, '1.2-2', this.locale);
+        this.formattedValue = this.percentPipe.transform(value, '1.2-2', 'en-US');
         break;
       case 'number':
-        this.formattedValue = this.decimalPipe.transform(value, '1.0-2', this.locale);
+        this.formattedValue = this.decimalPipe.transform(value, '1.0-2', 'en-US');
         break;
       default:
         this.formattedValue = value; // No formatting
         break;
     }
+    this.isHovering = false
 
   }
 
 
- //
- // getMaxWidth (): string {
- //
- //
- //    console.log(`${ this.inputMaxWidth } px`)
- //   console.log(this.inputMaxWidth )
- //
- //    return  `${this.inputMaxWidth}px`
- //
- // }
 
   handleFocus() {
     this.isFocused = true;
@@ -86,12 +77,25 @@ export class HoverEditableFieldComponent implements OnInit {
   }
 
   handleMouseEnter() {
-    this.isHovering = true;
+    if (this.hoverTimer) {
+      clearTimeout(this.hoverTimer);
+    }
+
+    // Set a new timer
+    this.hoverTimer = setTimeout(() => {
+      this.isHovering = true;
+    }, this.timeOut);
   }
 
   handleMouseLeave() {
-    if (!this.isFocused) {
-      this.isHovering = false;
+    this.isHovering = false;
+
+    if (this.hoverTimer) {
+      clearTimeout(this.hoverTimer);
+      this.hoverTimer = null;
     }
+
+      // this.isHovering = false;
+
   }
 }

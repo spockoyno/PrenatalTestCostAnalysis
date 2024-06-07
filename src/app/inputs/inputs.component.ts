@@ -3,7 +3,7 @@ import {InteractorService} from "../CORE/interactor.service";
 import {MatLabel} from "@angular/material/form-field";
 import {MatSlider, MatSliderModule, MatSliderThumb} from "@angular/material/slider";
 import {FormBuilder, FormControl,  FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {CurrencyPipe, NgIf, PercentPipe} from "@angular/common";
+import {CurrencyPipe, DecimalPipe, NgIf, PercentPipe} from "@angular/common";
 import {MatButton, MatFabButton, MatIconButton, MatMiniFabButton} from "@angular/material/button";
 import {
   MatCell, MatCellDef,
@@ -17,6 +17,7 @@ import {
 import {MatIcon} from "@angular/material/icon";
 import {MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {MatTooltip} from "@angular/material/tooltip";
+import {HoverEditableFieldComponent} from "../hover-editable-field/hover-editable-field.component";
 
 export interface SensitivityInputRow{
   inputName: string;
@@ -62,8 +63,10 @@ export interface SensitivityInputRow{
     MatCardHeader,
     MatCardTitle,
     MatCardFooter,
-    MatTooltip
+    MatTooltip,
+    HoverEditableFieldComponent
   ],
+  providers: [CurrencyPipe, PercentPipe, DecimalPipe],
   templateUrl: './inputs.component.html',
   styleUrl: './inputs.component.scss'
 })

@@ -2,9 +2,11 @@
 
 <span *ngIf="!isHovering && !isFocused"
       (mouseenter)="handleMouseEnter()"
+      (mouseleave)="handleMouseLeave()"
+      (mouseout)="handleMouseLeave()"
       class="hover-editable"
       [ngStyle]="{'max-width.px': inputMaxWidth}">
-  {{ formattedValue || valueControl.value }}
+  {{ formattedValue  }}
 </span>
 
 <input *ngIf="isHovering || isFocused"
@@ -16,4 +18,5 @@
        (blur)="handleBlur()"
        (mouseenter)="handleMouseEnter()"
        (mouseleave)="handleMouseLeave()"
+       (mouseout)="handleMouseLeave()"
        [ngStyle]="{'max-width.px': inputMaxWidth}">
