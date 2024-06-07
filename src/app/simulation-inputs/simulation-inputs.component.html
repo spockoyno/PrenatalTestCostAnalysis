@@ -36,13 +36,7 @@
 <!--                </div>-->
                 <div class="header-content">
                                     <span>Range</span>
-                  <mat-checkbox color = "primary"
-                                labelPosition="after"
-                                class="custom-checkbox"
-                                matTooltip="hide"
-                                [matTooltipPosition]="positionOptions[0]"
-                                [matTooltipShowDelay]="15"
-                                [formControl]="rangesHidden"></mat-checkbox>
+
                 </div>
 
               </th>
@@ -176,7 +170,7 @@
 
     <div class="bottom-buttons">
 
-      <!--    <mat-divider></mat-divider>-->
+      <div class = "under-controls">
    <button mat-flat-button class="rounded-button-small"
            color = "accent"
            matTooltip="Reset to initial ranges"
@@ -184,6 +178,15 @@
                 (click)="resetClick()"> RANGES
           <mat-icon  class="large-icon" >refresh</mat-icon>
         </button>
+
+      <mat-checkbox color = "primary"
+                    labelPosition="before"
+                    class="custom-checkbox"
+                    matTooltip="hide"
+                    [matTooltipPosition]="positionOptions[0]"
+                    [matTooltipShowDelay]="15"
+                    [formControl]="rangesHidden"><b>Hide</b></mat-checkbox>
+      </div>
 
       <div class="quantile-input">
 

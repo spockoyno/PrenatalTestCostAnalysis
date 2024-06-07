@@ -37,6 +37,14 @@ th.mat-header-cell {
   gap: 5px;
 }
 
+.under-controls {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-right: 10px;
+  //width: 20%;
+  //gap: 5px;
+}
 
 .white-background {
   background-color: white !important; /* Ensures override of Material styles */
@@ -72,7 +80,7 @@ mat-card {
   display: flex;
   flex-direction: row;
     margin-left: 55%;
-  margin-top: 28%;
+  margin-top: 20%;
   gap: 10px;
 }
 

@@ -31,13 +31,13 @@
               <th mat-header-cell *matHeaderCellDef class="input-col">
                 <div class="header-content">
                   <span>Input</span>
-                  <mat-checkbox color = "primary"
-                                labelPosition="after"
-                                class="custom-checkbox"
-                                matTooltip="hide"
-                                [matTooltipPosition]="positionOptions[0]"
-                                [matTooltipShowDelay]="15"
-                    [formControl]="rangesHidden"></mat-checkbox>
+<!--                  <mat-checkbox color = "primary"-->
+<!--                                labelPosition="after"-->
+<!--                                class="custom-checkbox"-->
+<!--                                matTooltip="hide"-->
+<!--                                [matTooltipPosition]="positionOptions[0]"-->
+<!--                                [matTooltipShowDelay]="15"-->
+<!--                    [formControl]="rangesHidden"></mat-checkbox>-->
                 </div>
               </th>
 
@@ -99,7 +99,7 @@
     </form>
 
 
-
+<div class = "under-controls">
 
     <button mat-flat-button color = "accent"
             class="rounded-button"
@@ -108,6 +108,16 @@
             (click)="resetClick()">INPUTS
       <mat-icon class="large-icon" >refresh</mat-icon>
     </button>
+
+    <mat-checkbox color = "primary"
+                  labelPosition="before"
+                  class="custom-checkbox"
+                  matTooltip="Input column"
+                  [matTooltipPosition]="positionOptions[0]"
+                  [matTooltipShowDelay]="15"
+                  [formControl]="rangesHidden"><b>Hide</b></mat-checkbox>
+
+</div>
 
        <div class = 'bottom'>
          <span>Source: </span>
