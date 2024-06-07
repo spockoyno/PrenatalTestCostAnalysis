@@ -32,8 +32,9 @@ th.mat-header-cell {
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  //justify-content: space-between;
+  width: 20%;
+  gap: 5px;
 }
 
 
@@ -91,3 +92,17 @@ mat-card {
   font-weight: bold;
 }
 
+/* Custom Checkbox Styles */
+.custom-checkbox .mat-checkbox-inner-container {
+  background-color: white !important; /* White background */
+  border: 1px solid black !important; /* Black border */
+}
+
+.custom-checkbox.mat-checkbox-checked .mat-checkbox-background,
+.custom-checkbox.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: black !important; /* Black background when checked */
+}
+
+.custom-checkbox .mat-checkbox-checkmark-path {
+  stroke: white !important; /* White check mark */
+}

@@ -32,6 +32,7 @@ import {number} from "mathjs";
 import {HoverEditableFieldComponent} from "../ELEMS/hover-editable-field/hover-editable-field.component";
 import {MatTooltip, TooltipPosition} from "@angular/material/tooltip";
 import {HoverEditablePercentComponent} from "../ELEMS/hover-editable-percent/hover-editable-percent.component";
+import {MatCheckbox} from "@angular/material/checkbox";
 
 
 interface RangeRow {
@@ -94,6 +95,7 @@ interface QuantRow {
     HoverEditableFieldComponent,
     MatTooltip,
     HoverEditablePercentComponent,
+    MatCheckbox,
 
   ],
   templateUrl: './simulation-inputs.component.html',
@@ -102,7 +104,7 @@ interface QuantRow {
 })
 export class SimulationInputsComponent implements OnInit {
 
-
+  rangesHidden: FormControl = new FormControl(false)
 
   positionOptions: TooltipPosition[] = ['after']
 
