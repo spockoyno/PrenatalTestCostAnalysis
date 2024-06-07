@@ -90,6 +90,18 @@
               <td mat-cell *matCellDef="let row" class="right-align">
                 <span *ngIf="row.pipeType=== '%'">{{ row.controlMin.value | percent }}</span>
                 <span *ngIf="row.pipeType === '$'">{{ row.controlMin.value | currency:'USD':'symbol':'1.0-0' }}</span>
+
+<!--                <span *ngIf="row.pipeType === '%'">       <app-hover-editable-percent [valueControl]="row.controlMin"-->
+<!--                                                                                      [limitsPercent]= "[100*row.minPhys, 100*row.maxPhys]"-->
+<!--                                                                                      [inputMaxWidth]="60"></app-hover-editable-percent> </span>-->
+
+<!--                <span *ngIf="row.pipeType === '$'">       <app-hover-editable-field [valueControl]="row.controlMin"-->
+<!--                                                                                    [limits]= "[row.minPhys, row.maxPhys]"-->
+<!--                                                                                    [inputMaxWidth]="80"-->
+
+<!--                                                                                    [format] = "'currency'"></app-hover-editable-field> </span>-->
+
+
               </td>
 
 
@@ -117,6 +129,17 @@
               <td mat-cell *matCellDef="let row" class="right-align">
                 <span *ngIf="row.pipeType=== '%'">{{ row.controlMax.value | percent }}</span>
                 <span *ngIf="row.pipeType === '$'">{{ row.controlMax.value | currency:'USD':'symbol':'1.0-0' }}</span>
+
+
+<!--                <span *ngIf="row.pipeType === '%'">       <app-hover-editable-percent [valueControl]="row.controlMax"-->
+<!--                                                                                      [limitsPercent]= "[100*row.minPhys, 100*row.maxPhys]"-->
+<!--                                                                                      [inputMaxWidth]="60"></app-hover-editable-percent> </span>-->
+
+<!--                <span *ngIf="row.pipeType === '$'">       <app-hover-editable-field [valueControl]="row.controlMax"-->
+<!--                                                                                    [limits]= "[row.minPhys, row.maxPhys]"-->
+<!--                                                                                    [inputMaxWidth]="80"-->
+
+<!--                                                                                    [format] = "'currency'"></app-hover-editable-field> </span>-->
               </td>
 
             </ng-container>

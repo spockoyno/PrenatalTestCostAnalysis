@@ -31,6 +31,7 @@ import {MatDivider} from "@angular/material/divider";
 import {number} from "mathjs";
 import {HoverEditableFieldComponent} from "../ELEMS/hover-editable-field/hover-editable-field.component";
 import {MatTooltip, TooltipPosition} from "@angular/material/tooltip";
+import {HoverEditablePercentComponent} from "../ELEMS/hover-editable-percent/hover-editable-percent.component";
 
 
 interface RangeRow {
@@ -92,6 +93,7 @@ interface QuantRow {
     DecimalPipe,
     HoverEditableFieldComponent,
     MatTooltip,
+    HoverEditablePercentComponent,
 
   ],
   templateUrl: './simulation-inputs.component.html',
