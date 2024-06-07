@@ -29,7 +29,7 @@ import {
 } from "@angular/material/card";
 import {MatDivider} from "@angular/material/divider";
 import {number} from "mathjs";
-import {HoverEditableFieldComponent} from "../hover-editable-field/hover-editable-field.component";
+import {HoverEditableFieldComponent} from "../ELEMS/hover-editable-field/hover-editable-field.component";
 import {MatTooltip, TooltipPosition} from "@angular/material/tooltip";
 
 

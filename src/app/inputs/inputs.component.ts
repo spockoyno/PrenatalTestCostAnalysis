@@ -17,7 +17,8 @@ import {
 import {MatIcon} from "@angular/material/icon";
 import {MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {MatTooltip} from "@angular/material/tooltip";
-import {HoverEditableFieldComponent} from "../hover-editable-field/hover-editable-field.component";
+import {HoverEditableFieldComponent} from "../ELEMS/hover-editable-field/hover-editable-field.component";
+import {HoverEditablePercentComponent} from "../ELEMS/hover-editable-percent/hover-editable-percent.component";
 
 export interface SensitivityInputRow{
   inputName: string;
@@ -64,7 +65,8 @@ export interface SensitivityInputRow{
     MatCardTitle,
     MatCardFooter,
     MatTooltip,
-    HoverEditableFieldComponent
+    HoverEditableFieldComponent,
+    HoverEditablePercentComponent
   ],
   providers: [CurrencyPipe, PercentPipe, DecimalPipe],
   templateUrl: './inputs.component.html',

@@ -59,8 +59,11 @@
                 Value
               </th>
               <td mat-cell *matCellDef="let row" class="right-align">
-                <span *ngIf="row.pipeType=== '%'">{{ row.control.value | percent }}  </span>
-<!--                <span *ngIf="row.pipeType === '$'">{{ row.control.value | currency:'USD':'symbol':'1.0-0' }}</span>-->
+<!--                <span *ngIf="row.pipeType=== '%'">{{ row.control.value | percent }}  </span>-->
+                <span *ngIf="row.pipeType === '%'">       <app-hover-editable-percent [valueControl]="row.control"
+                                                                                    [limitsPercent]= "[100*row.min, 100*row.max]"
+                                                                                    [inputMaxWidth]="60"></app-hover-editable-percent> </span>
+
                 <span *ngIf="row.pipeType === '$'">       <app-hover-editable-field [valueControl]="row.control"
                                                                                     [limits]= "[row.min, row.max]"
                                                                                     [inputMaxWidth]="80"

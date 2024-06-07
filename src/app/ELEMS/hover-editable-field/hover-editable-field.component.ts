@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {CurrencyPipe, DecimalPipe, NgIf, NgStyle, PercentPipe} from "@angular/common";
 
@@ -14,7 +14,7 @@ import {CurrencyPipe, DecimalPipe, NgIf, NgStyle, PercentPipe} from "@angular/co
   templateUrl: './hover-editable-field.component.html',
   styleUrl: './hover-editable-field.component.scss'
 })
-export class HoverEditableFieldComponent implements OnInit {
+export class HoverEditableFieldComponent implements OnInit, OnDestroy {
 
   isHovering: boolean = false;
   isFocused: boolean = false;
@@ -24,14 +24,14 @@ export class HoverEditableFieldComponent implements OnInit {
   @Input() valueControl!: FormControl;
   @Input() limits: number[] = [0, 1]
 
-  @Input() format: 'currency' | 'percent' | 'number' | null = 'number';
+  @Input() format: 'currency' |'number' | null = 'number';
 
 
   private hoverTimer: any = null;
   formattedValue: string | null = null;
 
-  timeOut: number = 200
-  constructor(private currencyPipe: CurrencyPipe, private percentPipe: PercentPipe, private decimalPipe: DecimalPipe) {}
+  @Input()  timeOut: number = 200
+  constructor(private currencyPipe: CurrencyPipe, private decimalPipe: DecimalPipe) {}
 
   ngOnInit(): void {
     this.valueControl.valueChanges.subscribe(value => {
@@ -51,9 +51,7 @@ export class HoverEditableFieldComponent implements OnInit {
       case 'currency':
         this.formattedValue = this.currencyPipe.transform(value, 'USD', 'symbol', '1.0-0', 'en-US');
         break;
-      case 'percent':
-        this.formattedValue = this.percentPipe.transform(value, '1.2-2', 'en-US');
-        break;
+
       case 'number':
         this.formattedValue = this.decimalPipe.transform(value, '1.0-2', 'en-US');
         break;
@@ -95,7 +93,12 @@ export class HoverEditableFieldComponent implements OnInit {
       this.hoverTimer = null;
     }
 
-      // this.isHovering = false;
+  }
 
+  ngOnDestroy() {
+    // Make sure to clear the timer when the component is destroyed
+    if (this.hoverTimer) {
+      clearTimeout(this.hoverTimer);
+    }
   }
 }
