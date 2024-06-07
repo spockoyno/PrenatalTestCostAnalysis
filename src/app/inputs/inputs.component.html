@@ -11,6 +11,8 @@
     <form [formGroup]="form">
       <div class="inputs-main">
 
+        <mat-checkbox [formControl]="rangesVisible">Show Range Sliders</mat-checkbox>
+
 
         <ng-container *ngIf="this.table as tab">
           <table mat-table [dataSource]="tab" class="success-table">
@@ -36,7 +38,7 @@
 
               <td mat-cell *matCellDef="let row">
 
-                <div class="custom-theme">
+                <div class="custom-theme" *ngIf="rangesVisible.value">
                   <mat-slider
                     [min]="row.min"
                     [max]="row.max"

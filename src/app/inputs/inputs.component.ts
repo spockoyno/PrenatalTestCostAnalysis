@@ -19,6 +19,7 @@ import {MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle} fro
 import {MatTooltip} from "@angular/material/tooltip";
 import {HoverEditableFieldComponent} from "../ELEMS/hover-editable-field/hover-editable-field.component";
 import {HoverEditablePercentComponent} from "../ELEMS/hover-editable-percent/hover-editable-percent.component";
+import {MatCheckbox} from "@angular/material/checkbox";
 
 export interface SensitivityInputRow{
   inputName: string;
@@ -66,7 +67,8 @@ export interface SensitivityInputRow{
     MatCardFooter,
     MatTooltip,
     HoverEditableFieldComponent,
-    HoverEditablePercentComponent
+    HoverEditablePercentComponent,
+    MatCheckbox
   ],
   providers: [CurrencyPipe, PercentPipe, DecimalPipe],
   templateUrl: './inputs.component.html',
@@ -82,6 +84,7 @@ export class InputsComponent  implements OnInit{
 
  public table : SensitivityInputRow[]
 
+  rangesVisible: FormControl = new FormControl(true)
 
 
 
