@@ -66,7 +66,9 @@ public showTop: BehaviorSubject<ScenarioOutputsView>;
 
 
 config = {
-    responsive: false
+    responsive: true,
+  height: "100%",
+  width:  "100%",
   };
 
   constructor(public interactor: InteractorService) {

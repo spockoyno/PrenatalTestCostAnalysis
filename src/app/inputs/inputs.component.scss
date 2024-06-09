@@ -1,7 +1,7 @@
 .header{
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 1em;
   align-items: center;
 }
 
@@ -13,7 +13,7 @@
   width: 100%;
 }
 mat-slider {
-  width: 250px;
+  width: 20em;
 }
 
 .first-col{
@@ -34,25 +34,25 @@ th.mat-header-cell {
   align-items: center;
   //justify-content: space-between;
   width: 20%;
-  gap: 5px;
+  gap: 0.25em;
 }
 
 .under-controls {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-right: 10px;
+  margin-right: 0.5em;
   //width: 20%;
   //gap: 5px;
 }
 
-.white-background {
-  background-color: white !important; /* Ensures override of Material styles */
-}
-
-mat-form-field .mat-input-element.white-background {
-  background-color: white !important;
-}
+//.white-background {
+//  background-color: white !important; /* Ensures override of Material styles */
+//}
+//
+//mat-form-field .mat-input-element.white-background {
+//  background-color: white !important;
+//}
 
 .inputs-main{
   display: flex;
@@ -84,19 +84,10 @@ mat-card {
   gap: 10px;
 }
 
-//.reference{
-//  display: flex;
-//  margin-left: 70%;
-//  margin-top: 20%;
-//
-//
-//}
+
 
 .large-icon {
-  //font-size:24px !important; //make it bigger, the default being 24px.
-  //width:24px;                //Do not forget to adjust the
-  //height:24px;
-  //line-height: 24px; // DO
+
   font-weight: bold;
 }
 
