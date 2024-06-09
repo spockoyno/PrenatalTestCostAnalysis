@@ -46,13 +46,7 @@ th.mat-header-cell {
   //gap: 5px;
 }
 
-//.white-background {
-//  background-color: white !important; /* Ensures override of Material styles */
-//}
-//
-//mat-form-field .mat-input-element.white-background {
-//  background-color: white !important;
-//}
+
 
 .inputs-main{
   display: flex;
@@ -91,17 +85,3 @@ mat-card {
   font-weight: bold;
 }
 
-/* Custom Checkbox Styles */
-.custom-checkbox .mat-checkbox-inner-container {
-  background-color: white !important; /* White background */
-  border: 1px solid black !important; /* Black border */
-}
-
-.custom-checkbox.mat-checkbox-checked .mat-checkbox-background,
-.custom-checkbox.mat-checkbox-indeterminate .mat-checkbox-background {
-  background-color: black !important; /* Black background when checked */
-}
-
-.custom-checkbox .mat-checkbox-checkmark-path {
-  stroke: white !important; /* White check mark */
-}

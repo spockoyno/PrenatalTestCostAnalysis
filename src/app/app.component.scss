@@ -1,127 +1,28 @@
 
 @import '../styles';
 
-
-.app-header-plain {
-  background-color: #f2f2f2;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-    color: $charcoal;
-  font-size: 42px; /* Adjust size as needed */
-  font-weight: bold;
-
-  margin-bottom: 15px;
-  margin-top: 15px;
-  margin-left: 15px;
+*,
+::before,
+::after {
+  box-sizing: border-box;
 }
 
-
 .app-header {
-  background-color: #f2f2f2;
-  height: 50px;
+  //box-sizing: border-box;
+  background: #f2f2f2;
+  height: 5vh;
   width: 100%;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: left;
-  font-size: 42px; /* Adjust size as needed */
+  font-size: 2.5rem; /* Adjust size as needed */
   font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  margin-left: 15px;
+  margin: 0.25em 0.25em 0.1em 0.3em;
   color: transparent;  /* Make the text color transparent */
   background: linear-gradient(to right, $dark-purple, $blueish-dark, $blueish-light);
   -webkit-background-clip: text;  /* Apply the gradient clip to the text */
   background-clip: text;
 }
-
-
-
-.top-divider {
-  height: 10px; /* Set the height of the divider */
-  display: flex;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  background: linear-gradient(to right, $dark-purple,   $blueish-dark, $blueish-light);
-  border: none; /* Ensure no border interferes with the gradient */
-}
-
-
-.mid-divider {
-  height: 5px;
-  //border-top-color:#D1C4E9;
-  display: flex;
-  margin-top: 40px;
-  margin-bottom: 0px;
-  background: linear-gradient(to right, $dark-purple, rgba(103, 58, 183, 0.7), $light-purple);
-  border: none; /* Ensure no border interferes with the gradient */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//.main {
-//  display: grid;
-//  grid-template-columns: 600px 200px 200px 1500px 1000px; /* Three columns with equal fraction */
-//  grid-template-rows: auto auto; /* Two rows, auto height */
-//  gap: 15px 25px; /* 15px horizontal gap, 25px vertical gap */
-//  margin-left: 15px;
-//  margin-bottom: 25px; /* Space after the whole grid if needed */
-//}
-//
-//
-//
-////.app-price-scenario-plot, .app-simulation-output {
-////  grid-column: span 2; /* These elements will span two columns */
-////}
-//
-//.app-inputs{
-//  grid-column: 1;
-//  grid-row: 1;
-//
-//}
-//
-//
-//.app-outputs{
-//  grid-column: span 2;
-//  grid-row: 1;
-//}
-//
-//.app-price-scenario-plot{
-//  grid-column: span 2;
-//  grid-row: 1;
-//}
-//
-////.app-simulation-inputs{
-////
-////  grid-column: 1/2;
-////  grid-row: 2;
-////}
-////
-////
-////.app-simulation-outputs{
-////
-////  grid-column: 3/4;
-////  grid-row: 2;
-////}
-////
-//
 
 
 
@@ -139,11 +40,13 @@
 
 /* Styles for the child components */
 .a {
+
   grid-column: 1;
   grid-row: 1;
 }
 
 .b {
+
   grid-column: 2 /4;
   grid-row: 1;
 }
