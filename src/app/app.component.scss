@@ -7,75 +7,61 @@
   box-sizing: border-box;
 }
 
+
 .app-header {
   //box-sizing: border-box;
-  background: #f2f2f2;
-  height: 5vh;
+  background-color: #f2f2f2;
+
+  border: #f2f2f2;
+
+  //height: 5vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: left;
-  font-size: 2.5rem; /* Adjust size as needed */
+  font-size: 3.5rem;
   font-weight: bold;
-  margin: 0.25em 0.25em 0.1em 0.3em;
-  color: transparent;  /* Make the text color transparent */
-  background: linear-gradient(to right, $dark-purple, $blueish-dark, $blueish-light);
-  -webkit-background-clip: text;  /* Apply the gradient clip to the text */
+  //border: none;
+  padding: 0;
+  margin: 0.4em 0.25em 0.25em 0.4em;  // top right left bottom
+
+
+  background-image: linear-gradient(to right, $dark-purple, $blueish-dark, $blueish-light);
   background-clip: text;
+  -webkit-background-clip: text;  /* Apply the gradient clip to the text */
+  color: transparent;
+
 }
 
 
 
 
-.container {
-  display: grid;
-  grid-template-columns: 30%  10% 10%  26%  ;
-  grid-template-rows: auto auto; /* Two rows, auto height */
-    grid-auto-rows: 1fr;
-  grid-gap: 30px 30px; /* 15px horizontal gap, 25px vertical gap */
-  margin-left: 20px;
-  margin-bottom: 25px; /* Space after the whole grid if needed */
-  width: 100%;
+.top-row{
+  display: flex;
+  margin: 0 1em 1em 1em;
+  gap: 0.5em;
 }
 
-/* Styles for the child components */
-.a {
-
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.b {
-
-  grid-column: 2 /4;
-  grid-row: 1;
-}
-
-.c {
-  grid-column: 4/5;
-   grid-row: 1;
-}
-
-
-.d {
-  grid-column: 1 / span 2;
-  grid-row: 2;
-}
-
-.e {
-  grid-column: 3/5;
-  grid-row: 2;
+.bottom-row {
+  display: flex;
+  margin: 0 1em 1em 1em;
+  gap: 0.5em;
+  align-items: stretch ;
 }
 
 
 
+.top-row > * {
+  overflow: auto;
+  margin: 0 1em 1em 1em;
+  gap: 0.5em;
+}
 
-
-
-
-
-
-
+.bottom-row > * {
+  overflow: auto;
+  margin: 0 1em 1em 1em;
+  gap: 0.5em;
+}
 
 
 
