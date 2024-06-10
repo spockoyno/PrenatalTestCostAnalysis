@@ -36,7 +36,7 @@ public showTop: BehaviorSubject<ScenarioOutputsView>;
 
   public layout: Partial<Layout> = {
     width: 300,
-    height: 340,
+    height: 300,
       xaxis: {
     tickfont: {
       family: 'Roboto, sans-serif',
@@ -46,7 +46,7 @@ public showTop: BehaviorSubject<ScenarioOutputsView>;
           showgrid: false,
   },
     yaxis: {showticklabels: false,   showgrid: false,},
-    margin: { t: 15, r: 40, b: 30, l: 60 }
+    margin: { t: 15, r: 40, b: 30, l: 30 }
   };
   public data: Partial<Data>[] = [{
     x: ['Base', 'Reflex'],

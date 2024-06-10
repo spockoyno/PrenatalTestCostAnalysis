@@ -1,11 +1,8 @@
 @import '../../styles';
 .outer-card {
-  //margin-left: 15px;
-
-  //min-width: 420px;
-  //max-width: 452px;
-  // max-height: 570px;
-  //min-height: 570px;
+ display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 

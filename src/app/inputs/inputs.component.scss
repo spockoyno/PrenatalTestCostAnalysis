@@ -1,3 +1,13 @@
+
+.outer-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+}
+
+
+
 .header{
   display: flex;
   gap: 1em;
@@ -10,14 +20,9 @@
 }
 
 mat-slider {
-  width: 20em;
+  min-width: 20em;
 }
 
-.first-col{
-  //min-width: 200px;
-
-
-}
 
 th.mat-header-cell {
   box-sizing: border-box;

@@ -1,12 +1,12 @@
 @import '../../styles';
 
 mat-card {
-  margin-left: 10px;
-  width: 80%;
-  min-width: 1100px;
-  max-width: 1100px;
-  max-height: 620px;
-  min-height: 620px;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 2;
+  overflow: auto;
+
 }
 
 
@@ -33,10 +33,7 @@ mat-card {
 }
 
 .mat-slider {
-  //width: 100%; /* Ensures the slider expands to fill its container */
-  max-width: 850px;
-  min-width: 850px;
-  width: 850px;
+  min-width: 20em;
 }
 
 //.card-header{

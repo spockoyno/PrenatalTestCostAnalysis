@@ -36,24 +36,15 @@ mat-slider {
 
 
 mat-card {
-  //margin-left: 15px;
+
   display: flex;
   flex-direction: column;
   //justify-content: space-between;
    flex-grow: 1; /* This will make the content take up all available space */
   overflow: auto; /* In case content is longer than the available space */
 
-  //margin-right: 20px;
-  //width: 80%;
-  //min-width: 850px;
-  //max-width: 850px;
-  //max-height: 620px;
-  //min-height: 620px;
 }
-//.mat-card-content {
-//  flex-grow: 1; /* This will make the content take up all available space */
-//  overflow: auto; /* In case content is longer than the available space */
-//}
+
 .rounded-button {
     border-radius: 50px; /* You can adjust the radius as needed */
   width: 20%;
