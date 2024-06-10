@@ -1,4 +1,4 @@
-
+@import '../../styles';
 .outer-card {
   //margin-left: 15px;
 
@@ -24,7 +24,7 @@
   //flex-shrink: 2;
   //flex: none;
   //flex: 1; /* Allows the plot container to grow and take available space */
-  max-width: 30%; /* Ensures the plot container has a minimum width */
+  max-width: 40%; /* Ensures the plot container has a minimum width */
   //min-height: 560px;
 }
 
@@ -35,27 +35,17 @@
   display: flex;
   align-items: center;  // Ensure vertical alignment to the center
   justify-content: flex-start;  // Align items to the start of the container
-  flex-direction: row;  // Lay out items horizontally
-  // Top margin for spacing
-  //margin: 20px 50px 40px 100px;
-  //gap: 15px;  // Space between elements
+  margin: 1em;
+  gap: 0.75em;
+
+
 }
 
-.saved-content span {
-  font-size: 1rem;  // Uniform font size for all spans
+
+.saved-content > * {
+  font-size: 1.25rem;  // Uniform font size for all spans
   font-weight: bold;  // Bold text for better visibility
+  text-align: center;
   color: #36454F;  // Consistent color for text
-}
 
-.saved-content span:first-child {
-  flex: 0 0 auto;  // Prevent "Saved" from growing or shrinking
-  margin-right: 1em;  // Right margin only for the "Saved" label
-  white-space: nowrap;  // Prevent "Saved" from wrapping to a new line
-}
-
-.saved-content .value {
-  flex: 1;  // Allow values to grow and fill available space
-  color: #36454F;  // Ensure values are the specified color
-  text-align: center;  // Center-align values for a balanced appearance
-  min-width: 40px;  // Minimum width to handle small values
 }

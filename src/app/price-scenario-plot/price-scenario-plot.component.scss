@@ -1,12 +1,12 @@
 mat-card {
-  //margin: 20px;
-  margin-left: 15px;
-  width: 80%;  // Adjust width as needed
-  min-width: 860px;
-  max-width: 860px;
-  max-height: 570px;
-  min-height: 570px;
-  // Additional styles
+  ////margin: 20px;
+  //margin-left: 15px;
+  //width: 80%;  // Adjust width as needed
+  //min-width: 860px;
+  //max-width: 860px;
+  //max-height: 570px;
+  //min-height: 570px;
+margin-right: 1em;
 }
 
 
@@ -78,17 +78,6 @@ mat-card-header {
   gap: 445px;
 }
 
-//.helper-button {
-//  font-size: 24px; /* Increase the font size for larger icon/text */
-//  line-height: 1; /* Adjust line-height to control the spacing */
-//  padding: 8px 16px; /* Increase padding to make the button larger */
-//  min-width: 40px; /* Ensure the button has a minimum width */
-//  height: 40px; /* Control the height of the button */
-//}
-//
-//.helper-button mat-icon {
-//  font-size: 24px; /* Make sure the icon also grows */
-//}
 
 .helper-button {
   font-size: 24px; // Adjust as needed for the size of the text or icon
