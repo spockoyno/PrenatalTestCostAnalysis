@@ -10,11 +10,13 @@ mat-card {
 }
 
 
-.mat-card-content {
-  display: flex;
-  flex-direction: column;
-
-}
+//.mat-card-content {
+//  display: flex;
+//  flex-direction: column;
+//  justify-content: center; /* Aligns children (plot and card) side by side */
+//  align-items: center; /* Aligns items at the top, useful if they have different heights */
+//
+//}
 
 
 
@@ -24,38 +26,31 @@ mat-card {
 
 }
 
+/* Styling for the card content area, which includes Plotly plot and the inner card */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Aligns children (plot and card) side by side */
+  align-items: center; /* Aligns items at the top, useful if they have different heights */
 
+}
 
 .plot-slider {
   display: flex;
   justify-content: center; /* Centers the slider within the div */
-  width: 1100px; /* Sets the exact width of the slider container */
+  min-width: 30em; /* Sets the exact width of the slider container */
 }
 
 .mat-slider {
-  min-width: 20em;
+  min-width: 40em !important;
 }
-
-//.card-header{
-//  display: flex;
-//  justify-content: stretch;
-//  align-items: center;
-//
-//}
-
-//.card-header {
-//  display: flex;
-//  justify-content: space-between; /* This will space out the children elements */
-//  align-items: center; /* Aligns items vertically in the center */
-//  width: 100%; /* Ensure the container takes full width of its parent */
-//}
 
  .card-header {
   display: flex;
   margin-top: -50 !important;
-  justify-content: stretch !important; /* This spreads out the children */
+  justify-content: space-between !important; /* This spreads out the children */
   align-items: flex-start !important;
   width: 100%; /* Full width to spread elements */
-  gap: 425px;
+  gap: 30em;
 }
 

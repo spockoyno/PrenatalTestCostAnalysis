@@ -1,4 +1,17 @@
 //.sim-inputs-main {
+@import '../../styles';
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+.outer-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+}
 
 
 .sim-input-panel {
@@ -6,13 +19,13 @@
   flex-direction: column;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-  gap: 20px;
-  align-items: center;
-}
+//.header {
+//  display: flex;
+//  flex-direction: row;
+//  margin-top: 10px;
+//  gap: 20px;
+//  align-items: center;
+//}
 
 
 mat-slider {
@@ -46,14 +59,15 @@ mat-card {
 }
 
 .rounded-button {
-    border-radius: 50px; /* You can adjust the radius as needed */
+    border-radius: 2.5em; /* You can adjust the radius as needed */
   width: 20%;
 }
 
 .rounded-button-small {
-  margin-top: 10px;
-  border-radius: 50px; /* You can adjust the radius as needed */
-  width: 15%;
+  margin-top:  0.5em;
+  border-radius: 2.5em; /* You can adjust the radius as needed */
+  width: 17%;
+  min-width: 1.5em;
 }
 
  .input-col{
@@ -64,9 +78,9 @@ mat-card {
 .bottom-buttons{
   display: flex;
   flex-direction: column;
-  margin-top: 0px;
-  margin-left: 15px;
-  gap: 20px;
+  margin-top: 0;
+  margin-left: 0.75em;
+  gap: 0.75em;
 
   //margin-bottom: auto;
   //margin-left: auto;
@@ -74,16 +88,18 @@ mat-card {
 
 .draws-simulate-action{
   display: flex;
-  margin-top:  15px;
+  //margin-top:  15px;
   //margin-left: 450px;
   justify-content: flex-end;
-  margin-right: 25px;
+  margin-right: 1.25em;
+  margin-bottom: 0.5em;
+  //margin-top: -0.1em;
   //gap: 450px;
 }
 .quantile-input{
   display: flex;
   //min-width: 675px;
-  max-width: 770px;
+  //max-width: 770px;
 }
 
 .sim-button{
@@ -93,7 +109,7 @@ mat-card {
 
 
 .mat-form-field{
-  width: 120px !important;
+  width: 6em !important;
 }
 
 .large-icon {
@@ -112,9 +128,8 @@ mat-card {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-right: 20px;
-  //width: 20%;
-  //gap: 5px;
+  margin-right: 1em;
+
 }
 
 .high{
@@ -122,4 +137,15 @@ mat-card {
   align-items: center;
   align-items: center;
 
+}
+
+/* Target the cells in all rows except the last one and remove the border */
+.mat-row .mat-cell,
+.mat-row .mat-header-cell {
+  border-bottom: none !important;
+}
+
+/* Add a border below the last row */
+.mat-row:last-child .mat-cell {
+  border-bottom: 1px solid #000; /* Adjust the color and width as needed */
 }

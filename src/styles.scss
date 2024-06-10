@@ -90,7 +90,7 @@ $custom-theme: mat.define-dark-theme(
 }
 
 mat-slider {
-  max-width: 20em;
+  max-width: 40em;
 }
 
 
@@ -118,7 +118,7 @@ mat-slider {
 
 
 .title-wrapper {
-    font-size: 24px;
+    font-size: 1.5rem;
     color: $charcoal; // Custom color
 }
 

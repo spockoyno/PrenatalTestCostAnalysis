@@ -98,11 +98,12 @@ export class PriceScenarioPlotComponent implements AfterViewInit {
         size: 18,
       },
 
-    }, // margin: { t: 40, r: 40, b: 55, l: 55 }
+    },
+     margin: { t: 20, r: 40, b: 45, l: 55 },
 
      width: 700, // adjust as necessary
-     height: 420, // adjust as necessary
-     margin: {t: 40}, // Adjust margins
+     height: 400, // adjust as necessary
+     // margin: {t: 40}, // Adjust margins
   };
 
 

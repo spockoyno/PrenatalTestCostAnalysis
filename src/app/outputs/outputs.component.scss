@@ -12,7 +12,7 @@
   //max-width: 50%;
   flex-direction: column;
   justify-content: space-between; /* Aligns children (plot and card) side by side */
-  align-items: start; /* Aligns items at the top, useful if they have different heights */
+  align-items: center; /* Aligns items at the top, useful if they have different heights */
 }
 
 #plotContainer {

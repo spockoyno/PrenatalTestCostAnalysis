@@ -72,9 +72,9 @@ export class SimulationOutputComponent implements AfterViewInit {
     shapes: [] as Partial<Shape>[], // Using TypeScript type assertion here
     annotations: [] as Partial<Annotations>[], // Usi
     width: 1100, // adjust as necessary
-    height: 450, // adjust as necessary
-    margin: {t: 40}, // Adjust margins
-    // margin: { t: 5, r: 40, b: 5, l: 55 }
+    height: 415, // adjust as necessary
+    // margin: {t: 40}, // Adjust margins
+    margin: { t: 40, r: 40, b: 55, l: 55 }
 
   };
 

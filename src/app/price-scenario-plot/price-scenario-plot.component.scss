@@ -6,6 +6,7 @@
 .outer-card {
   display: flex;
   flex-direction: column;
+  overflow: auto;
   flex: 1 2;
 }
 
@@ -24,8 +25,8 @@ mat-card-header {
 .card-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Aligns children (plot and card) side by side */
-  align-items: start; /* Aligns items at the top, useful if they have different heights */
+  justify-content: center; /* Aligns children (plot and card) side by side */
+  align-items: center; /* Aligns items at the top, useful if they have different heights */
 
 }
 
@@ -60,19 +61,20 @@ mat-card-header {
 .card-header {
   display: flex;
   margin-top: -50 !important;
-  justify-content: stretch !important; /* This spreads out the children */
+  //justify-content: stretch !important; /* This spreads out the children */
   align-items: flex-start !important;
   width: 100%; /* Full width to spread elements */
-  gap: 445px;
+  gap: 0.5em;
+  //gap: 445px;
 }
 
 
 .helper-button {
-  font-size: 24px; // Adjust as needed for the size of the text or icon
+  font-size: 1.2r5em; // Adjust as needed for the size of the text or icon
   //line-height: 1;
-  padding: 8px 16px;
-  min-width: 40px;
-  height: 20px;
+  padding: 0.4em 0.8em;
+  min-width: 2em;
+  height: 1em;
   background-color: transparent; /* Removes the default background */
   border: none; /* Removes the border */
   color: inherit; /* Inherits the text color from the parent, or set your preferred color */

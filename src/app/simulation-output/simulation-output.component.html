@@ -7,6 +7,8 @@
       <div class="card-header">
         <div class="title-wrapper">Simulated costs: Base - Reflex</div>
 
+
+        <div class = "summary-form">
         <mat-form-field>
           <mat-label>Summary</mat-label>
           <mat-select [formControl]="summaries" multiple>
@@ -16,6 +18,7 @@
           </mat-select>
         </mat-form-field>
       </div>
+      </div>
     </mat-card-title>
 
 
@@ -24,8 +27,10 @@
   <mat-card-content>
 
 
-    <div #plotContainer></div>
+    <div class = "card-content">
 
+    <div #plotContainer></div>
+    </div>
 
   </mat-card-content>
 
