@@ -34,35 +34,70 @@
 }
 
 
-
-
-.top-row{
-  display: flex;
-  margin: 0 1em 1em 1em;
-  gap: 0.5em;
+.grid {
+  display: grid;
+  grid-template-columns: 35% 30% 35%;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 0.5em;
 }
 
-.bottom-row {
-  display: flex;
-  margin: 0 1em 1em 1em;
-  gap: 0.5em;
-  align-items: stretch ;
-}
-
-
-
-.top-row > * {
+.grid > * {
   overflow: auto;
-  margin: 0 1em 1em 1em;
-  gap: 0.5em;
+  padding: 0.5em;
+  border-radius: 2em;
+}
+.a {
+  grid-column: 1/2;
+  grid-row: 1;
 }
 
-.bottom-row > * {
-  overflow: auto;
-  margin: 0 1em 1em 1em;
-  gap: 0.5em;
+.b {
+  grid-column: 2/3;
+  grid-row: 1;
 }
 
+
+.c {
+  grid-column: 3/4;
+  grid-row: 1;
+}
+.d {
+  grid-column: 1/2;
+  grid-row: 2;
+}
+
+.e {
+  grid-column: 2/4;
+  grid-row: 2;
+}
+
+//.top-row{
+//  display: flex;
+//  margin: 0 1em 1em 1em;
+//  gap: 0.5em;
+//}
+//
+//.bottom-row {
+//  display: flex;
+//  margin: 0 1em 1em 1em;
+//  gap: 0.5em;
+//  align-items: stretch ;
+//}
+//
+//
+//
+//.top-row > * {
+//  overflow: auto;
+//  margin: 0 1em 1em 1em;
+//  gap: 0.5em;
+//}
+//
+//.bottom-row > * {
+//  overflow: auto;
+//  margin: 0 1em 1em 1em;
+//  gap: 0.5em;
+//}
+//
 
 
 

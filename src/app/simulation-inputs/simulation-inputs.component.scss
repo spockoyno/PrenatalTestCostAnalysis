@@ -43,12 +43,12 @@ mat-card {
    flex-grow: 1; /* This will make the content take up all available space */
   overflow: auto; /* In case content is longer than the available space */
 
-  margin-right: 20px;
-  width: 80%;
-  min-width: 850px;
-  max-width: 850px;
-  max-height: 620px;
-  min-height: 620px;
+  //margin-right: 20px;
+  //width: 80%;
+  //min-width: 850px;
+  //max-width: 850px;
+  //max-height: 620px;
+  //min-height: 620px;
 }
 //.mat-card-content {
 //  flex-grow: 1; /* This will make the content take up all available space */
@@ -106,26 +106,10 @@ mat-card {
 }
 
 .large-icon {
-  //font-size:24px !important; //make it bigger, the default being 24px.
-  //width:24px;                //Do not forget to adjust the
-  //height:24px;
-  //line-height: 24px; // DO
+
   font-weight: bold;
 }
 
-/* Styles.css or in your component-specific CSS file */
-.hover-editable {
-  font-family: 'Roboto', sans-serif; /* Sets the font family */
-  font-size: 20px; /* Sets the font size, adjust as needed */
-  width: auto;
-  max-width: 100px;
-  cursor: pointer; /* Optional, shows a pointer cursor on hover */
-  text-align: center;
-
-  /* Center text vertically */
-  display: flex;
-  align-items: center;
-}
 .header-content {
   display: flex;
   align-items: center;
@@ -145,8 +129,6 @@ mat-card {
 .high{
   display: flex;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
   align-items: center;
-  height: 40px;
+
 }
