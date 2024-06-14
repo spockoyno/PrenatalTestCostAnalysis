@@ -2,15 +2,30 @@
 
 <div class="app-header">
   REFLEX PRENATAL TEST COST ANALYSIS
+
+  <mat-button-toggle-group  name="switches"
+                            class="switch-toggle"
+                            aria-label="Screen switches"
+                           multiple>
+    <mat-button-toggle value="sensitivity">Sensitivity</mat-button-toggle>
+    <mat-button-toggle value="simulation">Simulation</mat-button-toggle>
+  </mat-button-toggle-group>
+
 </div>
+
 
 <div class="grid">
 
+    <ng-container class = "sensitivity_panel">
     <app-inputs class="a"></app-inputs>
     <app-outputs class="b"></app-outputs>
     <app-price-scenario-plot class="c"></app-price-scenario-plot>
+    </ng-container>
 
+
+    <ng-container class = "simulation-panel">
     <app-simulation-inputs class="d"></app-simulation-inputs>
     <app-simulation-output class="e"></app-simulation-output>
+      </ng-container>
 
 </div>
