@@ -1,31 +1,43 @@
-
-
 <div class="app-header">
   REFLEX PRENATAL TEST COST ANALYSIS
 
-  <mat-button-toggle-group  name="switches"
-                            class="switch-toggle"
-                            aria-label="Screen switches"
+  <div class = "summary-form">
+    <mat-form-field>
+      <mat-label>order</mat-label>
+      <mat-select [formControl]="orient" >
+        @for (order of orders; track orders) {
+          <mat-option [value]="order">{{ order }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+
+  <mat-button-toggle-group [formControl]="switches"
+                          name="switches"
+                           class="switch-toggle"
+                           aria-label="Screen switches"
                            multiple>
     <mat-button-toggle value="sensitivity">Sensitivity</mat-button-toggle>
     <mat-button-toggle value="simulation">Simulation</mat-button-toggle>
   </mat-button-toggle-group>
+</div>
+
 
 </div>
 
 
 <div class="grid">
 
-    <ng-container class = "sensitivity_panel">
+  <ng-container *ngIf="switches.value.includes('sensitivity')"  class="sensitivity_panel">
     <app-inputs class="a"></app-inputs>
     <app-outputs class="b"></app-outputs>
     <app-price-scenario-plot class="c"></app-price-scenario-plot>
-    </ng-container>
+  </ng-container>
 
 
-    <ng-container class = "simulation-panel">
+  <ng-container  *ngIf="switches.value.includes('simulation')"  class="simulation-panel">
     <app-simulation-inputs class="d"></app-simulation-inputs>
     <app-simulation-output class="e"></app-simulation-output>
-      </ng-container>
+  </ng-container>
 
 </div>

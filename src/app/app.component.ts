@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatButton} from "@angular/material/button";
 
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, NgIf} from "@angular/common";
 
 import {InputsComponent} from "./inputs/inputs.component";
 import {OutputsComponent} from "./outputs/outputs.component";
@@ -12,20 +12,27 @@ import {SimulationInputsComponent} from "./simulation-inputs/simulation-inputs.c
 import {SimulationOutputComponent} from "./simulation-output/simulation-output.component";
 import {MatDivider} from "@angular/material/divider";
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {F} from "@angular/cdk/keycodes";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatOption} from "@angular/material/autocomplete";
+import {MatSelect} from "@angular/material/select";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatButton, AsyncPipe, InputsComponent, OutputsComponent, PriceScenarioPlotComponent, SimulationInputsComponent, SimulationOutputComponent, PriceScenarioPlotComponent, MatDivider, MatButtonToggleGroup, MatButtonToggle],
+  imports: [RouterOutlet, MatButton, AsyncPipe, InputsComponent, OutputsComponent, PriceScenarioPlotComponent, SimulationInputsComponent, SimulationOutputComponent, PriceScenarioPlotComponent, MatDivider, MatButtonToggleGroup, MatButtonToggle, ReactiveFormsModule, NgIf, MatFormField, MatLabel, MatOption, MatSelect],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  form: FormGroup = this.fb.group({
-    // Setting both toggle values to true
-    switches: this.fb.control(['sensitivity', 'simulation'])
-  });
+  switches: FormControl =
+    this.fb.control(['sensitivity', 'simulation'])
+
+
+  orders = ['row','column']
+  orient = new FormControl(['row'])
+
 
   constructor(private fb: FormBuilder) {}
 

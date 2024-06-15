@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden; /* This prevents vertical scrolling */
 }
 
 
@@ -19,17 +20,9 @@
   flex-direction: column;
 }
 
-//.header {
-//  display: flex;
-//  flex-direction: row;
-//  margin-top: 10px;
-//  gap: 20px;
-//  align-items: center;
-//}
-
 
 mat-slider {
-  width: 250px;
+  min-width: 20em;
 }
 
 .right-align {
@@ -37,7 +30,7 @@ mat-slider {
 }
 
 .first-col {
-  width: 200px;
+  min-width: 15em;
 }
 
 .header-content {
@@ -47,14 +40,14 @@ mat-slider {
   width: 100%;
 }
 
-
 mat-card {
 
   display: flex;
   flex-direction: column;
   //justify-content: space-between;
    flex-grow: 1; /* This will make the content take up all available space */
-  overflow: auto; /* In case content is longer than the available space */
+  //overflow-x: auto; /* In case content is longer than the available space */
+  overflow-y: hidden; /* This prevents vertical scrolling */
 
 }
 
@@ -82,24 +75,19 @@ mat-card {
   margin-left: 0.75em;
   gap: 0.75em;
 
-  //margin-bottom: auto;
-  //margin-left: auto;
 }
 
 .draws-simulate-action{
   display: flex;
-  //margin-top:  15px;
-  //margin-left: 450px;
+
   justify-content: flex-end;
   margin-right: 1.25em;
-  margin-bottom: 0.5em;
-  //margin-top: -0.1em;
-  //gap: 450px;
+  margin-bottom: 1.5em;
+
 }
 .quantile-input{
   display: flex;
-  //min-width: 675px;
-  //max-width: 770px;
+
 }
 
 .sim-button{
@@ -107,20 +95,17 @@ mat-card {
   margin-left: 45px;
 }
 
-
 .mat-form-field{
   width: 6em !important;
 }
 
 .large-icon {
-
   font-weight: bold;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  //justify-content: space-between;
   width: 20%;
   gap: 5px;
 }

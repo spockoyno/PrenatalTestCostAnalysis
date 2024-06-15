@@ -39,7 +39,7 @@ export class SimulationOutputComponent implements AfterViewInit {
 
 
    summaries = new FormControl(['Low','High']);
-  toppingList: string[] = ['Low', 'Mean', 'Median', 'High'];
+  summaryList: string[] = ['Low', 'Mean', 'Median', 'High'];
 
 
   config = {

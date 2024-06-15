@@ -12,8 +12,8 @@
         <mat-form-field>
           <mat-label>Summary</mat-label>
           <mat-select [formControl]="summaries" multiple>
-            @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{ topping }}</mat-option>
+            @for (smry of summaryList; track smry) {
+              <mat-option [value]="smry">{{ smry }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
