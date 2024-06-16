@@ -27,11 +27,11 @@ import {MatSelect} from "@angular/material/select";
 })
 export class AppComponent implements OnInit {
   switches: FormControl =
-    this.fb.control(['sensitivity', 'simulation'])
+    this.fb.control(['rows','sensitivity', 'simulation'])
 
 
-  orders = ['row','column']
-  orient = new FormControl(['row'])
+
+  orient=  this.fb.nonNullable.control(['rows'])
 
 
   constructor(private fb: FormBuilder) {}

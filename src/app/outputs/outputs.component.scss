@@ -9,7 +9,9 @@
 /* Styling for the card content area, which includes Plotly plot and the inner card */
 .card-content {
   display: flex;
-  //max-width: 50%;
+  max-width: 50%;
+  //min-width: 5%;
+  //min-height: 5%;
   flex-direction: column;
   justify-content: space-between; /* Aligns children (plot and card) side by side */
   align-items: center; /* Aligns items at the top, useful if they have different heights */
@@ -17,13 +19,27 @@
 
 #plotContainer {
   display: flex;
+  min-width: 5%;
+  min-height: 5%;
   //flex-basis: 20%;
   //flex-shrink: 2;
   //flex: none;
   //flex: 1; /* Allows the plot container to grow and take available space */
-  max-width: 40%; /* Ensures the plot container has a minimum width */
+  max-width: 100%; /* Ensures the plot container has a minimum width */
   //min-height: 560px;
 }
+//
+//.plot-hold {
+//  display: flex;
+//  min-width: 5%;
+//  min-height: 5%;
+//  //flex-basis: 20%;
+//  //flex-shrink: 2;
+//  //flex: none;
+//  //flex: 1; /* Allows the plot container to grow and take available space */
+//  max-width: 100%; /* Ensures the plot container has a minimum width */
+//  //min-height: 560px;
+//}
 
 
 //}

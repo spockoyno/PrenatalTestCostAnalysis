@@ -1,15 +1,19 @@
 <div class="app-header">
   REFLEX PRENATAL TEST COST ANALYSIS
 
-  <div class = "summary-form">
-    <mat-form-field>
-      <mat-label>order</mat-label>
-      <mat-select [formControl]="orient" >
-        @for (order of orders; track orders) {
-          <mat-option [value]="order">{{ order }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+
+
+<div class = "summary-form">
+  <mat-button-toggle-group [formControl]="orient"
+                           name="orientation"
+                           class="row-toggle"
+                           aria-label="Row column switches"
+                           multiple
+                          >
+    <mat-button-toggle value="rows">Rows</mat-button-toggle>
+
+  </mat-button-toggle-group>
+
 
 
   <mat-button-toggle-group [formControl]="switches"
@@ -17,6 +21,7 @@
                            class="switch-toggle"
                            aria-label="Screen switches"
                            multiple>
+
     <mat-button-toggle value="sensitivity">Sensitivity</mat-button-toggle>
     <mat-button-toggle value="simulation">Simulation</mat-button-toggle>
   </mat-button-toggle-group>

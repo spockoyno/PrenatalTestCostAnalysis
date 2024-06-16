@@ -8,6 +8,7 @@ import * as PlotlyJS from 'plotly.js-dist-min';
 import {Data, Layout} from 'plotly.js-dist-min';
 import {FormControl} from "@angular/forms";
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
+import {PlotlyModule, PlotlyService} from "angular-plotly.js";
 
 
 
@@ -23,7 +24,8 @@ import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/mat
     MatCardHeader,
     MatCardTitle,
     CurrencyPipe,
-    PercentPipe
+    PercentPipe,
+    PlotlyModule
   ],
   templateUrl: './outputs.component.html',
   styleUrls: ['./outputs.component.scss']
@@ -31,12 +33,12 @@ import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/mat
 export class OutputsComponent implements AfterViewInit {
   @ViewChild('plotContainer') plotContainer!: ElementRef;
 
-public showTop: BehaviorSubject<ScenarioOutputsView>;
+  public showTop: BehaviorSubject<ScenarioOutputsView>;
 
 
   public layout: Partial<Layout> = {
-    width: 230,
-    height: 300,
+    // width: 230,
+    // height: 300,
       xaxis: {
     tickfont: {
       family: 'Roboto, sans-serif',
@@ -46,7 +48,8 @@ public showTop: BehaviorSubject<ScenarioOutputsView>;
           showgrid: false,
   },
     yaxis: {showticklabels: false,   showgrid: false,},
-    margin: { t: 15, r: 0, b: 30, l: 0 }
+    margin: { t: 15, r: 0, b: 30, l: 0 },
+    autosize: true,
   };
   public data: Partial<Data>[] = [{
     x: ['Base', 'Reflex'],
@@ -55,28 +58,26 @@ public showTop: BehaviorSubject<ScenarioOutputsView>;
     marker: {
       color: ['#D2ECF3', '#2B9CB3']
     },
-      textfont: {
-    family: 'Roboto, sans-serif',
-    size: 16,
-  },
+    textfont: {
+      family: 'Roboto, sans-serif',
+      size: 16,
+    },
     text: ["", ""],
     textposition: 'auto',
     hoverinfo: 'none'
   }];
 
 
-config = {
+  config = {
     responsive: true,
-  autosize: true,
-  // height: "30%",
-  // width:  "30%",
+    displaylogo: false,
   };
 
-  constructor(public interactor: InteractorService) {
+  constructor(public interactor: InteractorService, public service: PlotlyService) {
 
-  this.showTop = new BehaviorSubject<ScenarioOutputsView>(interactor.currentScenarioOutputView())
-
-      this.interactor.computedObservable().subscribe(d => {
+    this.showTop = new BehaviorSubject<ScenarioOutputsView>(interactor.currentScenarioOutputView())
+    this.interactor.computedObservable().subscribe(d => {
+      this.updateGraph(d);
       this.showTop.next(d)
     })
 
@@ -84,18 +85,26 @@ config = {
   }
 
   ngAfterViewInit() {
-    PlotlyJS.newPlot(this.plotContainer.nativeElement, this.data, this.layout, this.config);
+    // PlotlyJS.newPlot('myDiv', this.data, this.layout, this.config);
 
-     this.interactor.computedObservable().subscribe(d => {
-      this.updatePlot(d)
+    this.interactor.computedObservable().subscribe(d => {
+      // this.updatePlot(d)
+      this.updateGraph(d);
     })
 
   }
 
+  updateGraph(d: ScenarioOutputsView) {
+    const updatedData = {
+      ...this.data[0],
+      y: [d.costBase, d.costReflex],
+      text: [this.formatCurrency(d.costBase), this.formatCurrency(d.costReflex)]
+    };
 
-  private formatCurrency(value: number): string {
-    return `$${value.toFixed(2)}`; // Simple currency formatting: $1,234.56
+    this.data = [updatedData]
   }
+
+
 
   updatePlot(d: ScenarioOutputsView) {
     const updatedData = {
@@ -105,8 +114,13 @@ config = {
     };
 
     this.data = [updatedData]
-    // Using Plotly.react for efficient updating
-    PlotlyJS.react(this.plotContainer.nativeElement, this.data, this.layout, this.config);
+
+    PlotlyJS.react('myDiv', this.data, this.layout, this.config);
   }
+
+  private formatCurrency(value: number): string {
+    return `$${value.toFixed(2)}`; // Simple currency formatting: $1,234.56
+  }
+
 
 }
