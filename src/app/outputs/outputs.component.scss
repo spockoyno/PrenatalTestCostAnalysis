@@ -10,39 +10,36 @@
 .card-content {
   display: flex;
   max-width: 50%;
-  //min-width: 5%;
-  //min-height: 5%;
+  min-width: 20%;
+  min-height: 20%;
   flex-direction: column;
   justify-content: space-between; /* Aligns children (plot and card) side by side */
   align-items: center; /* Aligns items at the top, useful if they have different heights */
 }
 
-#plotContainer {
-  display: flex;
-  min-width: 5%;
-  min-height: 5%;
-  //flex-basis: 20%;
-  //flex-shrink: 2;
-  //flex: none;
-  //flex: 1; /* Allows the plot container to grow and take available space */
-  max-width: 100%; /* Ensures the plot container has a minimum width */
-  //min-height: 560px;
+.plot-hold {
+  width: 100%; /* Full width to ensure it expands/contracts with the container */
+  height: 100%; /* Full height to ensure it takes up all available space */
+  min-height: 50px; /* Minimum height to prevent it from becoming too small */
 }
-//
-//.plot-hold {
+
+//.card-content {
+//  flex: 1;  /* Allows the card content to fill the space */
 //  display: flex;
-//  min-width: 5%;
-//  min-height: 5%;
-//  //flex-basis: 20%;
-//  //flex-shrink: 2;
-//  //flex: none;
-//  //flex: 1; /* Allows the plot container to grow and take available space */
-//  max-width: 100%; /* Ensures the plot container has a minimum width */
-//  //min-height: 560px;
+//  flex-direction: column;
+//  align-items: center; /* Centering content horizontally */
+//  justify-content: space-between; /* Distributing space above and below the plot */
+//  width: 100%; /* Ensures the card content takes full width */
 //}
-
-
+//
+//.outer-card {
+//  display: flex;
+//  flex-direction: column;
+//  width: 100%; /* Set width to 100% to ensure it occupies all its parent's width */
+//  max-width: 100%; /* Ensures the outer card is not wider than its parent */
+//  height: auto; /* Height auto for natural flow */
 //}
+//
 
 .saved-content {
   display: flex;

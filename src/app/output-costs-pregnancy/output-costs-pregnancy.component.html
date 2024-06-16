@@ -1,0 +1,17 @@
+<mat-card class="outer-card">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="title-wrapper">Cost per affected pregnancy $M</div>
+    </mat-card-title>
+  </mat-card-header>
+
+  <div class="saved-content">
+    <span>Saved:</span>
+    <span class="value">{{(this.showTop | async)?.costDiff | currency:'USD':'symbol':'1.0-2'}}</span>
+    <span class="value">{{(this.showTop | async)?.shareSaved | percent}}</span>
+  </div>
+
+  <mat-card-content class="card-content">
+    <canvas #barChart></canvas>
+  </mat-card-content>
+</mat-card>

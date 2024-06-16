@@ -4,13 +4,9 @@ import {ScenarioOutputsView} from "../CORE/model.view";
 import {InteractorService} from "../CORE/interactor.service";
 import {AsyncPipe, CurrencyPipe, PercentPipe} from "@angular/common";
 import {MatButton} from "@angular/material/button";
-import * as PlotlyJS from 'plotly.js-dist-min';
 import {Data, Layout} from 'plotly.js-dist-min';
-import {FormControl} from "@angular/forms";
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {PlotlyModule, PlotlyService} from "angular-plotly.js";
-
-
 
 
 @Component({
@@ -69,7 +65,7 @@ export class OutputsComponent implements AfterViewInit {
 
 
   config = {
-    responsive: true,
+    // responsive: true,
     displaylogo: false,
   };
 
@@ -81,14 +77,11 @@ export class OutputsComponent implements AfterViewInit {
       this.showTop.next(d)
     })
 
-
   }
 
   ngAfterViewInit() {
-    // PlotlyJS.newPlot('myDiv', this.data, this.layout, this.config);
 
     this.interactor.computedObservable().subscribe(d => {
-      // this.updatePlot(d)
       this.updateGraph(d);
     })
 
@@ -104,19 +97,6 @@ export class OutputsComponent implements AfterViewInit {
     this.data = [updatedData]
   }
 
-
-
-  updatePlot(d: ScenarioOutputsView) {
-    const updatedData = {
-      ...this.data[0],
-      y: [d.costBase, d.costReflex],
-      text: [this.formatCurrency(d.costBase), this.formatCurrency(d.costReflex)]
-    };
-
-    this.data = [updatedData]
-
-    PlotlyJS.react('myDiv', this.data, this.layout, this.config);
-  }
 
   private formatCurrency(value: number): string {
     return `$${value.toFixed(2)}`; // Simple currency formatting: $1,234.56

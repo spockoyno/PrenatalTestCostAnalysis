@@ -1,0 +1,39 @@
+@import '../../styles';
+.outer-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+/* Styling for the card content area, which includes Plotly plot and the inner card */
+.card-content {
+  display: flex;
+  max-width: 50%;
+  //min-width: 5%;
+  //min-height: 5%;
+  flex-direction: column;
+  justify-content: space-between; /* Aligns children (plot and card) side by side */
+  align-items: center; /* Aligns items at the top, useful if they have different heights */
+}
+
+
+
+.saved-content {
+  display: flex;
+  align-items: center;  // Ensure vertical alignment to the center
+  justify-content: flex-start;  // Align items to the start of the container
+  margin: 1em;
+  gap: 0.75em;
+
+
+}
+
+
+.saved-content > * {
+  font-size: 1.25rem;  // Uniform font size for all spans
+  font-weight: bold;  // Bold text for better visibility
+  text-align: center;
+  color: #36454F;  // Consistent color for text
+
+}

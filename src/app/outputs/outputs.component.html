@@ -20,7 +20,8 @@
   <mat-card-content class="card-content">
     <div class = "plot-hold" >
     <plotly-plot [data]="data" [layout]="layout"
-                 [useResizeHandler]="true" [style]="{position: 'relative', width: '50%', height: '50%'}">
+                 [config]="config"
+                 [useResizeHandler]="true" [style]="{position: 'relative', width: '100%', height: '100%'}">
     </plotly-plot>
     </div>
 
