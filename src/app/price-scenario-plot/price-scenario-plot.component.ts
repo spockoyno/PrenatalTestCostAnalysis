@@ -22,18 +22,18 @@ import {MatIcon} from "@angular/material/icon";
   templateUrl: './price-scenario-plot.component.html',
   styleUrl: './price-scenario-plot.component.scss'
 })
-export class PriceScenarioPlotComponent implements AfterViewInit {
-  @ViewChild('plotContainer') plotContainer!: ElementRef;
+export class PriceScenarioPlotComponent  {
 
   public showTop: BehaviorSubject<ScenarioOutputsView>;
 
   config = {
-    responsive: true
+    displaylogo: false,
+    // responsive: true
   };
 
 
   // Define 'data' and 'layout' as separate variables
- data: Partial<Data>[] = [
+ public data: Partial<Data>[] = [
     {
       x: [0],
       y: [1],
@@ -99,11 +99,11 @@ export class PriceScenarioPlotComponent implements AfterViewInit {
       },
 
     },
-     margin: { t: 20, r: 40, b: 45, l: 55 },
+     margin: { t: 15, r: 5, b: 45, l: 55 },
 
-     width: 700, // adjust as necessary
-     height: 400, // adjust as necessary
-     // margin: {t: 40}, // Adjust margins
+     // width: 700, // adjust as necessary
+     // height: 400, // adjust as necessary
+
   };
 
 
@@ -112,7 +112,9 @@ export class PriceScenarioPlotComponent implements AfterViewInit {
       this.showTop = new BehaviorSubject<ScenarioOutputsView>(interactor.currentScenarioOutputView())
 
       this.interactor.computedObservable().subscribe(d => {
-      this.showTop.next(d)
+        this.updatePlot(d)
+      this.showTop.next(d);
+
     })
 
   }
@@ -132,16 +134,7 @@ export class PriceScenarioPlotComponent implements AfterViewInit {
 }
 
 
-  ngAfterViewInit() {
-    PlotlyJS.newPlot(this.plotContainer.nativeElement, this.data, this.layout, this.config);
-    this.interactor.computedObservable().subscribe(d => {
-      this.updatePlot(d)
-    })
 
-    this.updatePlot(this.interactor.currentScenarioOutputView())
-
-
-  }
 
   private updatePlot(d: ScenarioOutputsView) {
 
@@ -172,7 +165,7 @@ export class PriceScenarioPlotComponent implements AfterViewInit {
       yaxis: {...this.layout.yaxis, range: [0, 1.1 * maxY]}
     };
 
-    PlotlyJS.react(this.plotContainer.nativeElement, this.data, this.layout, this.config)
+
 
   }
 }

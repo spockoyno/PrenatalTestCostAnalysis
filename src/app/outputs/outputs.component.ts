@@ -27,7 +27,7 @@ import {PlotlyModule, PlotlyService} from "angular-plotly.js";
   styleUrls: ['./outputs.component.scss']
 })
 export class OutputsComponent implements AfterViewInit {
-  @ViewChild('plotContainer') plotContainer!: ElementRef;
+
 
   public showTop: BehaviorSubject<ScenarioOutputsView>;
 
@@ -81,9 +81,9 @@ export class OutputsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
 
-    this.interactor.computedObservable().subscribe(d => {
-      this.updateGraph(d);
-    })
+    // this.interactor.computedObservable().subscribe(d => {
+    //   this.updateGraph(d);
+    // })
 
   }
 

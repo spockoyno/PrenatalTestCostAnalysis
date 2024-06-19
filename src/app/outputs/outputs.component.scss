@@ -1,4 +1,10 @@
 @import '../../styles';
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 .outer-card {
  display: flex;
   flex-direction: column;

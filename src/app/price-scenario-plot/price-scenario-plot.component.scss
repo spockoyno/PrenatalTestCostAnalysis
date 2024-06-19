@@ -7,6 +7,8 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
+  height: 0;
+  min-height: 100%;
   flex: 1 2;
 }
 
@@ -24,17 +26,24 @@ mat-card-header {
 /* Styling for the card content area, which includes Plotly plot and the inner card */
 .card-content {
   display: flex;
+  width: 95%;
+  height: 100%;
   flex-direction: column;
   justify-content: center; /* Aligns children (plot and card) side by side */
   align-items: center; /* Aligns items at the top, useful if they have different heights */
+  overflow: auto;
 
 }
 
-#plotContainer {
-  flex: 1; /* Allows the plot container to grow and take available space */
-  min-width: 300px; /* Ensures the plot container has a minimum width */
-  //min-height: 700px;
-  //  max-height: 700px;
+
+
+.plot-hold {
+  //display: flex;
+  width: 90%; /* Full width to ensure it expands/contracts with the container */
+  height: 100%; /* Full height to ensure it takes up all available space */
+  min-height: 20px; /* Minimum height to prevent it from becoming too small */
+  overflow: auto;
+
 }
 
 

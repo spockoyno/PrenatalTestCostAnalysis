@@ -17,12 +17,11 @@ import {F} from "@angular/cdk/keycodes";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
-import {OutputCostsPregnancyComponent} from "./output-costs-pregnancy/output-costs-pregnancy.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatButton, AsyncPipe, InputsComponent, OutputsComponent, PriceScenarioPlotComponent, SimulationInputsComponent, SimulationOutputComponent, PriceScenarioPlotComponent, MatDivider, MatButtonToggleGroup, MatButtonToggle, ReactiveFormsModule, NgIf, MatFormField, MatLabel, MatOption, MatSelect, OutputCostsPregnancyComponent],
+  imports: [RouterOutlet, MatButton, AsyncPipe, InputsComponent, OutputsComponent, PriceScenarioPlotComponent, SimulationInputsComponent, SimulationOutputComponent, PriceScenarioPlotComponent, MatDivider, MatButtonToggleGroup, MatButtonToggle, ReactiveFormsModule, NgIf, MatFormField, MatLabel, MatOption, MatSelect],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
