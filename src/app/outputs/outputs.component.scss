@@ -2,7 +2,11 @@
 .outer-card {
  display: flex;
   flex-direction: column;
+  //max-height: 45vh;
+  height: 0;
+  min-height: 100%;
   flex: 1;
+
 }
 
 
@@ -10,19 +14,23 @@
 .card-content {
   display: flex;
 
+
   width: 90%;
   height: 100%;
   //flex-direction: column;
   justify-content: center; /* Aligns children (plot and card) side by side */
   align-items: center; /* Aligns items at the top, useful if they have different heights */
+  overflow: auto;
+  //max-height: 45vh;
 }
 
 .plot-hold {
   //display: flex;
-  width: 100%; /* Full width to ensure it expands/contracts with the container */
+  width: 90%; /* Full width to ensure it expands/contracts with the container */
   height: 100%; /* Full height to ensure it takes up all available space */
-  min-height: 50px; /* Minimum height to prevent it from becoming too small */
-  //max-height: 40vh !important;
+  min-height: 20px; /* Minimum height to prevent it from becoming too small */
+  overflow: auto;
+
 }
 
 

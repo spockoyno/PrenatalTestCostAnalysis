@@ -105,7 +105,7 @@ mat-slider {
 
 .card-gradient-patch {
   width: 100%; /* Make sure the gradient covers the full width of the header */
-  height: 7px; /* Adjust height as needed */
+  height: 0.5rem; /* Adjust height as needed */
   background: linear-gradient(to right, $blueish-dark, $blueish-light);
 
 }
