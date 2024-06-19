@@ -44,7 +44,7 @@ export class OutputsComponent implements AfterViewInit {
           showgrid: false,
   },
     yaxis: {showticklabels: false,   showgrid: false,},
-    margin: { t: 15, r: 0, b: 30, l: 0 },
+    margin: { t: 25, r: 0, b: 30, l: 0 },
     autosize: true,
   };
   public data: Partial<Data>[] = [{

@@ -10,9 +10,9 @@
 .card-content {
   display: flex;
 
-  width: 50%;
-  height: 70%;
-  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  //flex-direction: column;
   justify-content: center; /* Aligns children (plot and card) side by side */
   align-items: center; /* Aligns items at the top, useful if they have different heights */
 }
@@ -22,6 +22,7 @@
   width: 100%; /* Full width to ensure it expands/contracts with the container */
   height: 100%; /* Full height to ensure it takes up all available space */
   min-height: 50px; /* Minimum height to prevent it from becoming too small */
+  //max-height: 40vh !important;
 }
 
 
