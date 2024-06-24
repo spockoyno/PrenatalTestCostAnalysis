@@ -10,7 +10,7 @@ import * as PlotlyJS from 'plotly.js-dist-min';
 import {Annotations, Data, Layout, Shape} from 'plotly.js-dist-min';
 import {InteractorService} from "../CORE/interactor.service";
 import {SimulatedOutputs} from "../CORE/model.view";
-import {PlotlySharedModule} from "angular-plotly.js";
+import {PlotlyComponent, PlotlySharedModule} from "angular-plotly.js";
 import {MatCardModule} from "@angular/material/card";
 import {MatDivider} from "@angular/material/divider";
 import {AsyncPipe, CurrencyPipe, DecimalPipe, formatCurrency, NgIf} from "@angular/common";
@@ -35,7 +35,7 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './simulation-output.component.scss'
 })
 export class SimulationOutputComponent implements AfterViewInit {
-  @ViewChild('plotContainer') plotContainer!: ElementRef;
+  @ViewChild('plotlyRef', { static: true }) plotContainer!: ElementRef;
 
 
    summaries = new FormControl(['Low','High']);
@@ -43,7 +43,7 @@ export class SimulationOutputComponent implements AfterViewInit {
 
 
   config = {
-    responsive: true
+    displaylogo: false,
   };
 
 
@@ -71,10 +71,11 @@ export class SimulationOutputComponent implements AfterViewInit {
     },
     shapes: [] as Partial<Shape>[], // Using TypeScript type assertion here
     annotations: [] as Partial<Annotations>[], // Usi
-    width: 1100, // adjust as necessary
-    height: 415, // adjust as necessary
+    // width: 1100, // adjust as necessary
+    // height: 415, // adjust as necessary
     // margin: {t: 40}, // Adjust margins
-    margin: { t: 40, r: 40, b: 55, l: 55 }
+    margin: { t: 40, r: 40, b: 55, l: 55 },
+    autosize: true
 
   };
 
@@ -89,15 +90,11 @@ export class SimulationOutputComponent implements AfterViewInit {
 
   labelHeight: number = 1
 
-  constructor(public inter: InteractorService, public fb: FormBuilder, public cdr: ChangeDetectorRef, public ngZone: NgZone) {
+  constructor(public inter: InteractorService, public fb: FormBuilder, public cdr: ChangeDetectorRef) {
 
   }
 
   ngAfterViewInit() {
-
-    PlotlyJS.newPlot(this.plotContainer.nativeElement, this.data, this.layout, this.config)
-
-
     this.inter.newSimulatedValues$().subscribe(d => {
       this.updateSimulations(d);
 
@@ -115,6 +112,8 @@ export class SimulationOutputComponent implements AfterViewInit {
     this.inter.simulatedSummaries$().subscribe(d => {
       this.addStatsSummaries(d, this.summaries.getRawValue())
     })
+
+
     this.plotRangeInput.valueChanges.subscribe(val => {
 
       const data = this.plotRangeInput.getRawValue()
@@ -124,9 +123,10 @@ export class SimulationOutputComponent implements AfterViewInit {
     });
 
     this.summaries.valueChanges.subscribe(val => {
-
       this.addStatsSummaries(this.inter.simulated$.value, val)
     })
+
+
   }
 
 
@@ -140,17 +140,24 @@ export class SimulationOutputComponent implements AfterViewInit {
     this.layout = {...this.layout, shapes: [], annotations: [], xaxis: {...this.layout.xaxis, autorange: true},
       yaxis: {...this.layout.yaxis, autorange: true}}
 
-    PlotlyJS.react(this.plotContainer.nativeElement, this.data, this.layout, this.config)
+    // PlotlyJS.react(this.plotContainer.nativeElement, this.data, this.layout, this.config)
 
 
 
-    this.labelHeight =  this.plotContainer.nativeElement.layout.yaxis.range[1];
+
 
     this.layout = {...this.layout}; // Clone the layout object
+    // this.labelHeight =  this.plotContainer?.layout?.['yaxis'].range[1];
+
+    console.log(this.labelHeight)
+    // @ts-ignore
+    this.labelHeight  = this.plotContainer?.plotlyInstance?.layout.yaxis.range[1];
+
     this.layout.yaxis = {...this.layout.yaxis, range: [0, this.labelHeight * 1.1], autorange: false};
+    console.log(this.labelHeight)
 
 
-    PlotlyJS.relayout(this.plotContainer.nativeElement, this.layout)
+    // PlotlyJS.relayout(this.plotContainer.nativeElement, this.layout)
 
   }
 
@@ -221,11 +228,6 @@ export class SimulationOutputComponent implements AfterViewInit {
       return;
     }
 
-
-
-
-    // Inner function to add summary details
-
     this.layout.shapes = []
     this.layout.annotations = []
     const addSummary = (val: number, name: string) => {
@@ -253,14 +255,17 @@ export class SimulationOutputComponent implements AfterViewInit {
 
 
     // Re-render the plot with updated layout
-    PlotlyJS.react(this.plotContainer.nativeElement, this.data, this.layout, this.config);
+    // PlotlyJS.react(this.plotContainer.nativeElement, this.data, this.layout, this.config);
   }
 
 
   updateSliderRange() {
 
+    // const range = this.plotContainer?.layout?.['xaxis'].range;
+    // const range = this.plotContainer.nativeElement.layout.xaxis.range;
 
-    const range = this.plotContainer.nativeElement.layout.xaxis.range;
+   // @ts-ignore
+    const range =  this.plotContainer?.plotlyInstance?.layout.xaxis.range[1];
     this.plotRangeInput.setValue({lower: range[0], upper: range[1], min: range[0], max: range[1],});
 
 
@@ -273,7 +278,7 @@ export class SimulationOutputComponent implements AfterViewInit {
     this.layout.xaxis = {...this.layout.xaxis, range: [min, max], autorange: false};
 
 
-    PlotlyJS.relayout(this.plotContainer.nativeElement, this.layout)
+    // PlotlyJS.relayout(this.plotContainer.nativeElement, this.layout)
 
   }
 

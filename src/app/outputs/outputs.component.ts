@@ -65,7 +65,6 @@ export class OutputsComponent implements AfterViewInit {
 
 
   config = {
-    // responsive: true,
     displaylogo: false,
   };
 
