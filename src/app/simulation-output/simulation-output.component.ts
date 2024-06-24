@@ -43,6 +43,7 @@ export class SimulationOutputComponent implements AfterViewInit {
 
 
   config = {
+
     responsive: true
   };
 
@@ -71,8 +72,8 @@ export class SimulationOutputComponent implements AfterViewInit {
     },
     shapes: [] as Partial<Shape>[], // Using TypeScript type assertion here
     annotations: [] as Partial<Annotations>[], // Usi
-    width: 1100, // adjust as necessary
-    height: 415, // adjust as necessary
+    // width: 1100, // adjust as necessary
+    // height: 415, // adjust as necessary
     // margin: {t: 40}, // Adjust margins
     margin: { t: 40, r: 40, b: 55, l: 55 }
 
@@ -89,13 +90,15 @@ export class SimulationOutputComponent implements AfterViewInit {
 
   labelHeight: number = 1
 
-  constructor(public inter: InteractorService, public fb: FormBuilder, public cdr: ChangeDetectorRef, public ngZone: NgZone) {
+  constructor(public inter: InteractorService, public fb: FormBuilder, public cdr: ChangeDetectorRef) {
 
   }
 
   ngAfterViewInit() {
 
     PlotlyJS.newPlot(this.plotContainer.nativeElement, this.data, this.layout, this.config)
+
+    window.addEventListener('resize', () => this.onResize());
 
 
     this.inter.newSimulatedValues$().subscribe(d => {
@@ -129,6 +132,9 @@ export class SimulationOutputComponent implements AfterViewInit {
     })
   }
 
+  onResize() {
+    PlotlyJS.Plots.resize(this.plotContainer.nativeElement);
+  }
 
   updateSimulations(sims: number[]) {
 
