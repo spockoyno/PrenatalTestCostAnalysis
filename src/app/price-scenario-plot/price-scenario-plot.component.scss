@@ -1,7 +1,4 @@
-//mat-card {
-//
-//margin-right: 1em;
-//}
+
 @import '../../styles';
 .outer-card {
   display: flex;
@@ -13,12 +10,10 @@
 }
 
 
-
 mat-card-header {
   display: flex;
   flex-direction: column;
   align-items: start; /* Align title to the start */
-  //padding: 16px;
   background-color: white; /* Ensure the rest of the header is white */
 }
 
@@ -69,7 +64,7 @@ mat-card-header {
 
 .card-header {
   display: flex;
-  margin-top: -50 !important;
+  //margin-top: -50 !important;
   //justify-content: stretch !important; /* This spreads out the children */
   align-items: flex-start !important;
   width: 100%; /* Full width to spread elements */

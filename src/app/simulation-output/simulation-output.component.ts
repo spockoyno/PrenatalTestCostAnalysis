@@ -37,13 +37,11 @@ import {MatButtonModule} from '@angular/material/button';
 export class SimulationOutputComponent implements AfterViewInit {
   @ViewChild('plotContainer') plotContainer!: ElementRef;
 
-
   summaries = new FormControl(['Low','High']);
   summaryList: string[] = ['Low', 'Mean', 'Median', 'High'];
 
-
   config = {
-
+    displaylogo: false,
     responsive: true
   };
 

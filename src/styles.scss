@@ -3,8 +3,13 @@
 @use "@angular/material" as mat;
 
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-//@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -16,7 +21,6 @@ body {
 $dark-purple: #673AB7;
 $light-purple: #E0D5F3;
 $old-dark-purple: #9575CD;
-//$old-lighh-purple:
 $charcoal: #36454F;
 $blueish-dark : #2B9CB5;
 $blueish-light : #D2ECF3;
@@ -84,9 +88,8 @@ $custom-theme: mat.define-dark-theme(
 //#7E57C2
 .panel-title{
   color: $charcoal;
-   font-size: 25px; /* Adjust size as needed */
+   font-size: 1.25rem; /* Adjust size as needed */
   font-weight: bold;
-
 }
 
 mat-slider {
@@ -111,7 +114,7 @@ mat-slider {
 }
 .card-gradient-patch-violet {
   width: 100%; /* Make sure the gradient covers the full width of the header */
-  height: 7px; /* Adjust height as needed */
+  height: 0.5rem; /* Adjust height as needed */
   background:  linear-gradient(to right, $dark-purple, $light-purple);
 
 }
@@ -133,51 +136,7 @@ input::-webkit-inner-spin-button {
 
 
 .rounded-button {
-    border-radius: 20px; /* You can adjust the radius as needed */
+    border-radius: 1em; /* You can adjust the radius as needed */
 }
 
 
-// FROM APP CSS
-//.container {
-//  display: grid;
-//  grid-template-columns: 30%  10% 10%  26%  ;
-//  grid-template-rows: auto auto; /* Two rows, auto height */
-//    grid-auto-rows: 1fr;
-//  grid-gap: 30px 30px; /* 15px horizontal gap, 25px vertical gap */
-//  margin-left: 20px;
-//  margin-bottom: 25px; /* Space after the whole grid if needed */
-//  width: 100%;
-//}
-//
-///* Styles for the child components */
-//.a {
-//
-//  grid-column: 1;
-//  grid-row: 1;
-//}
-//
-//.b {
-//
-//  grid-column: 2 /4;
-//  grid-row: 1;
-//}
-//
-//.c {
-//  grid-column: 4/5;
-//   grid-row: 1;
-//}
-//
-//
-//.d {
-//  grid-column: 1 / span 2;
-//  grid-row: 2;
-//}
-//
-//.e {
-//  grid-column: 3/5;
-//  grid-row: 2;
-//}
-//
-//
-//
-//
