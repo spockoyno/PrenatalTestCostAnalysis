@@ -11,9 +11,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-size: 1em;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-size: 1rem;
   background-color: #f2f2f2;
 }
 
@@ -88,7 +92,7 @@ $custom-theme: mat.define-dark-theme(
 //#7E57C2
 .panel-title{
   color: $charcoal;
-   font-size: 1.25rem; /* Adjust size as needed */
+   font-size: 1.25rem;
   font-weight: bold;
 }
 

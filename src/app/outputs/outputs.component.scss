@@ -16,7 +16,6 @@
 .card-content {
   display: flex;
 
-
   width: 90%;
   height: 100%;
   //flex-direction: column;
@@ -28,9 +27,10 @@
 
 .plot-hold {
   //display: flex;
-  width: 90%; /* Full width to ensure it expands/contracts with the container */
+  width: 100%; /* Full width to ensure it expands/contracts with the container */
   height: 100%; /* Full height to ensure it takes up all available space */
   min-height: 40px; /* Minimum height to prevent it from becoming too small */
+  padding: 5% 15%;
   overflow: auto;
 
 }
@@ -52,6 +52,7 @@
   font-size: 1.25rem;  // Uniform font size for all spans
   font-weight: bold;  // Bold text for better visibility
   text-align: center;
+
   color: #36454F;  // Consistent color for text
 
 }
