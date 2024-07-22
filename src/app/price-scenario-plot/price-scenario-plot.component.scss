@@ -33,11 +33,11 @@ mat-card-header {
 
 
 .plot-hold {
-  //display: flex;
+  display: flex;
   width: 90%; /* Full width to ensure it expands/contracts with the container */
   height: 100%; /* Full height to ensure it takes up all available space */
   min-height: 40px; /* Minimum height to prevent it from becoming too small */
-  overflow: auto;
+  //overflow: auto;
 
 }
 

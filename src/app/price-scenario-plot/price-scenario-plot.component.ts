@@ -142,8 +142,8 @@ export class PriceScenarioPlotComponent  {
     const costs: number[] = d.reflexPricingScenarios.map(s => s.costFetus);
     const percents = d.reflexPricingScenarios.map(s => `${s.passedPercent * 100}%`);
 
-
-    const maxX: number = 1.1 * Math.max(...prices, 0);
+    // TODO: make multiplier depend on screen size
+    const maxX: number = 1.15 * Math.max(...prices, 0);
     const maxY: number = Math.max(...costs, 0);
 
     const priceDots = [prices[0], prices[prices.length - 1]]

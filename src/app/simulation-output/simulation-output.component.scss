@@ -1,26 +1,15 @@
 @import '../../styles';
 
-mat-card {
 
+
+.outer-card {
   display: flex;
   flex-direction: column;
-  flex: 1 2;
-  overflow: auto;
+  //overflow: auto;
   height: 0;
   min-height: 100%;
-
-
+  flex: 1 2;
 }
-
-
-//.mat-card-content {
-//  display: flex;
-//  flex-direction: column;
-//  justify-content: center; /* Aligns children (plot and card) side by side */
-//  align-items: center; /* Aligns items at the top, useful if they have different heights */
-//
-//}
-
 
 
 .mat-card-footer{
@@ -28,6 +17,13 @@ mat-card {
   flex-direction: column;
 
 }
+
+.mat-card-content{
+  display: flex;
+  flex-direction: column;
+
+}
+
 
 /* Styling for the card content area, which includes Plotly plot and the inner card */
 .card-content {
@@ -38,20 +34,14 @@ mat-card {
   width: 100%;
   height: 100%;
   position: relative;
-
+  //overflow: auto;
 }
 
 .plot-hold {
   width: 100%;
   height: 100%;
   min-height: 40px; /* Minimum height to prevent it from becoming too small */
-  overflow: auto;
-}
-
-.plot-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
+  //overflow: auto;
 }
 
 

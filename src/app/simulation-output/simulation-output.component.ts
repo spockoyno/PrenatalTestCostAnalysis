@@ -22,6 +22,7 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
+import {filter} from "rxjs";
 
 
 @Component({
@@ -37,8 +38,8 @@ import {MatButtonModule} from '@angular/material/button';
 export class SimulationOutputComponent implements AfterViewInit {
   @ViewChild('plotContainer') plotContainer!: ElementRef;
 
-  summaries = new FormControl(['Low','High']);
-  summaryList: string[] = ['Low', 'Mean', 'Median', 'High'];
+  public summaries = new FormControl(['Low','High']);
+  public summaryList: string[] = ['Low', 'Mean', 'Median', 'High'];
 
   config = {
     displaylogo: false,
@@ -57,8 +58,6 @@ export class SimulationOutputComponent implements AfterViewInit {
       range: [0, 1], titlefont: { // Optionally, override font settings for specific elements
         family: 'Roboto, sans-serif',
         size: 18,
-
-
       },   title: {text: 'Cost delta $M'},
 
     },
@@ -70,27 +69,25 @@ export class SimulationOutputComponent implements AfterViewInit {
     },
     shapes: [] as Partial<Shape>[], // Using TypeScript type assertion here
     annotations: [] as Partial<Annotations>[], // Usi
-    // width: 1100, // adjust as necessary
-    // height: 415, // adjust as necessary
-    // margin: {t: 40}, // Adjust margins
-    margin: { t: 40, r: 40, b: 55, l: 55 }
+    margin: { t: 40, r: 40, b: 65, l: 55 }
 
   };
 
-  plotRangeInput = this.fb.nonNullable.group({
+  public plotRangeInput = this.fb.nonNullable.group({
     lower: 0,
     upper: 1,
     min: 0,
     max: 1
   })
 
-  sliderVisible: boolean = false;
+  sliderVisible: boolean = true;
 
   labelHeight: number = 1
 
-  constructor(public inter: InteractorService, public fb: FormBuilder, public cdr: ChangeDetectorRef) {
+  constructor(public inter: InteractorService, public fb: FormBuilder, public cdr: ChangeDetectorRef, private ngZone: NgZone) {
 
   }
+
 
   ngAfterViewInit() {
 
@@ -116,11 +113,12 @@ export class SimulationOutputComponent implements AfterViewInit {
     this.inter.simulatedSummaries$().subscribe(d => {
       this.addStatsSummaries(d, this.summaries.getRawValue())
     })
+
+
     this.plotRangeInput.valueChanges.subscribe(val => {
 
-      const data = this.plotRangeInput.getRawValue()
 
-      this.updatePlotRangeX(data.min, data.max)
+      this.updatePlotRangeX(val.min, val.max)
 
     });
 
@@ -128,6 +126,40 @@ export class SimulationOutputComponent implements AfterViewInit {
 
       this.addStatsSummaries(this.inter.simulated$.value, val)
     })
+  }
+
+
+  ngAfterViewInitNu() {
+    PlotlyJS.newPlot(this.plotContainer.nativeElement, this.data, this.layout, this.config);
+    window.addEventListener('resize', () => this.onResize());
+
+    this.inter.newSimulatedValues$().subscribe(d => {
+      this.updateSimulations(d);
+      if (d.length > 0) {
+        this.addStatsSummaries(this.inter.simulated$.value, this.summaries.getRawValue());
+        if (!this.sliderVisible) {
+          this.sliderVisible = true;
+          this.cdr.detectChanges();
+        }
+        this.updateSliderRange();
+      }
+    });
+
+    this.inter.simulatedSummaries$().subscribe(d => {
+      this.addStatsSummaries(d, this.summaries.getRawValue())
+    });
+
+    this.plotRangeInput.valueChanges.subscribe(val => {
+      this.updatePlotRangeX(val.min, val.max);
+    });
+
+    this.summaries.valueChanges.subscribe(val => {
+      this.addStatsSummaries(this.inter.simulated$.value, val)
+    });
+
+    this.ngZone.runOutsideAngular(() => {
+      window.addEventListener('resize', this.debounce(() => this.onResize(), 100));
+    });
   }
 
   onResize() {
@@ -155,6 +187,7 @@ export class SimulationOutputComponent implements AfterViewInit {
 
 
     PlotlyJS.relayout(this.plotContainer.nativeElement, this.layout)
+
 
   }
 
@@ -217,15 +250,9 @@ export class SimulationOutputComponent implements AfterViewInit {
 
 
   addStatsSummaries(d: SimulatedOutputs, summaries: string[]|null) {
-    if (d.costDiffs.length === 0) {
+    if (d.costDiffs.length === 0|| summaries === null) {
       return;
     }
-
-    if (summaries === null){
-      return;
-    }
-
-
 
 
     // Inner function to add summary details
@@ -256,7 +283,7 @@ export class SimulationOutputComponent implements AfterViewInit {
     }
 
 
-    // Re-render the plot with updated layout
+
     PlotlyJS.react(this.plotContainer.nativeElement, this.data, this.layout, this.config);
   }
 
@@ -271,7 +298,8 @@ export class SimulationOutputComponent implements AfterViewInit {
   }
 
 
-  private updatePlotRangeX(min: number, max: number) {
+  private updatePlotRangeX(min: number|undefined, max: number|undefined) {
+    if (min === undefined || max === undefined) {return}
     // Clone the layout object to ensure change detection picks up the change
     this.layout = {...this.layout}; // Clone the layout object
     this.layout.xaxis = {...this.layout.xaxis, range: [min, max], autorange: false};
@@ -279,6 +307,14 @@ export class SimulationOutputComponent implements AfterViewInit {
 
     PlotlyJS.relayout(this.plotContainer.nativeElement, this.layout)
 
+  }
+
+  private debounce(func: Function, wait: number) {
+    let timeout: any;
+    return (...args: any[]) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
   }
 
 }

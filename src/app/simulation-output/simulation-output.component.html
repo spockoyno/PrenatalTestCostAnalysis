@@ -1,7 +1,6 @@
-<mat-card>
+<mat-card class="outer-card">
   <div class="card-gradient-patch"></div>
   <mat-card-header>
-
 
     <mat-card-title>
       <div class="card-header">
@@ -33,24 +32,11 @@
     <div #plotContainer></div>
       </div>
 
-<!--      <div class="panel">-->
-<!--        <h2>Single-origin</h2>-->
-<!--        <div class="panel-body">-->
-<!--          We have built partnerships with small farms around the world to-->
-<!--          hand-select beans at the peak of season. We then carefully roast-->
-<!--          in <a href="/batch-size">small batches</a> to maximize their-->
-<!--          potential.-->
-<!--        </div>-->
-<!--      </div>-->
-
-    </div>
 
 
 
-  </mat-card-content>
-
-  <div class="plot-slider" *ngIf="sliderVisible">
-    <div class="custom-theme">
+  <div class="plot-slider" >
+    <div class="custom-theme" *ngIf="sliderVisible" >
       <mat-slider color="warn"
                   [min]="plotRangeInput.controls.lower.value "
                   [max]="plotRangeInput.controls.upper.value"
@@ -70,5 +56,10 @@
     </div>
   </div>
 
+    </div>
+
+
+
+  </mat-card-content>
 
 </mat-card>
