@@ -6,7 +6,26 @@
       <div class="card-header">
         <div class="title-wrapper">Simulated costs: Base - Reflex</div>
 
+        <div class="plot-slider" >
+          <div class="custom-theme" *ngIf="sliderVisible" >
+            <mat-slider color="warn"
+                        [min]="plotRangeInput.controls.lower.value "
+                        [max]="plotRangeInput.controls.upper.value"
+                        step="0.01"
+                        matTooltip="Display range"
+                        [matTooltipShowDelay]="500"
+                        aria-label="Button that displays a tooltip in various positions"
+            >
+              <input matSliderStartThumb [value]="plotRangeInput.controls.min.value"
+                     [formControl]="plotRangeInput.controls.min"
+              >
+              <input matSliderEndThumb [value]="plotRangeInput.controls.max.value"
+                     [formControl]="plotRangeInput.controls.max"
+              >
+            </mat-slider>
 
+          </div>
+        </div>
         <div class = "summary-form">
         <mat-form-field>
           <mat-label>Summary</mat-label>
@@ -28,33 +47,16 @@
 
     <div class = "card-content">
 
+
+
+
+
+
+
+
       <div class = "plot-hold">
-    <div #plotContainer></div>
+        <div #plotContainer></div>
       </div>
-
-
-
-
-  <div class="plot-slider" >
-    <div class="custom-theme" *ngIf="sliderVisible" >
-      <mat-slider color="warn"
-                  [min]="plotRangeInput.controls.lower.value "
-                  [max]="plotRangeInput.controls.upper.value"
-                  step="0.01"
-                  matTooltip="Display range"
-                  [matTooltipShowDelay]="500"
-                  aria-label="Button that displays a tooltip in various positions"
-      >
-        <input matSliderStartThumb [value]="plotRangeInput.controls.min.value"
-               [formControl]="plotRangeInput.controls.min"
-        >
-        <input matSliderEndThumb [value]="plotRangeInput.controls.max.value"
-               [formControl]="plotRangeInput.controls.max"
-        >
-      </mat-slider>
-
-    </div>
-  </div>
 
     </div>
 

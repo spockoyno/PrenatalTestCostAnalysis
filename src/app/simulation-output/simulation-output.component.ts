@@ -129,38 +129,7 @@ export class SimulationOutputComponent implements AfterViewInit {
   }
 
 
-  ngAfterViewInitNu() {
-    PlotlyJS.newPlot(this.plotContainer.nativeElement, this.data, this.layout, this.config);
-    window.addEventListener('resize', () => this.onResize());
 
-    this.inter.newSimulatedValues$().subscribe(d => {
-      this.updateSimulations(d);
-      if (d.length > 0) {
-        this.addStatsSummaries(this.inter.simulated$.value, this.summaries.getRawValue());
-        if (!this.sliderVisible) {
-          this.sliderVisible = true;
-          this.cdr.detectChanges();
-        }
-        this.updateSliderRange();
-      }
-    });
-
-    this.inter.simulatedSummaries$().subscribe(d => {
-      this.addStatsSummaries(d, this.summaries.getRawValue())
-    });
-
-    this.plotRangeInput.valueChanges.subscribe(val => {
-      this.updatePlotRangeX(val.min, val.max);
-    });
-
-    this.summaries.valueChanges.subscribe(val => {
-      this.addStatsSummaries(this.inter.simulated$.value, val)
-    });
-
-    this.ngZone.runOutsideAngular(() => {
-      window.addEventListener('resize', this.debounce(() => this.onResize(), 100));
-    });
-  }
 
   onResize() {
     PlotlyJS.Plots.resize(this.plotContainer.nativeElement);
@@ -309,12 +278,6 @@ export class SimulationOutputComponent implements AfterViewInit {
 
   }
 
-  private debounce(func: Function, wait: number) {
-    let timeout: any;
-    return (...args: any[]) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-  }
+
 
 }
