@@ -33,6 +33,7 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
+    "@angular/cli": "^18.2.12",
     "@types/chance": "^1.1.6",
     "@types/d3-array": "^3.2.1",
     "@types/jasmine": "~5.1.0",
