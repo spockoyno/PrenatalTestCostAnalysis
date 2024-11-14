@@ -12,16 +12,14 @@ import {InteractorService} from "../CORE/interactor.service";
 import {SimulatedOutputs} from "../CORE/model.view";
 import {PlotlySharedModule} from "angular-plotly.js";
 import {MatCardModule} from "@angular/material/card";
-import {MatDivider} from "@angular/material/divider";
-import {AsyncPipe, CurrencyPipe, DecimalPipe, formatCurrency, NgIf} from "@angular/common";
+
+import { NgIf} from "@angular/common";
 import {round2} from "../DOMAIN/logic";
 import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSlider, MatSliderRangeThumb} from "@angular/material/slider";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
-import {MatButtonModule} from '@angular/material/button';
-import {filter} from "rxjs";
 
 
 @Component({
@@ -29,7 +27,7 @@ import {filter} from "rxjs";
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatCardModule, MatLabel,
-    PlotlySharedModule, MatDivider, FormsModule, MatSlider, MatSliderRangeThumb, ReactiveFormsModule, NgIf, AsyncPipe, DecimalPipe, MatFormField, MatSelect, MatOption, MatTooltip
+    PlotlySharedModule,  FormsModule, MatSlider, MatSliderRangeThumb, ReactiveFormsModule, NgIf,  MatFormField, MatSelect, MatOption, MatTooltip
   ],
   templateUrl: './simulation-output.component.html',
   styleUrl: './simulation-output.component.scss'
