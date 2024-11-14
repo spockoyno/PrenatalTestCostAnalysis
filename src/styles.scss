@@ -31,6 +31,26 @@
   }
 }
 
+//@media (min-width: 2000px) {
+//  :root {
+//    font-size: 1.5em;
+//  }
+//}
+
+@media (min-width: 3000px) {
+  :root {
+    font-size: 1.5em;
+  }
+}
+
+//@media (min-width: 3900px) {
+//  :root {
+//    font-size: 2.5em;
+//  }
+//}
+
+
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
@@ -144,7 +164,11 @@ mat-slider {
     font-size: 1.5rem;
     color: $charcoal; // Custom color
 }
+.mat-card-header{
+  font-size: 1.5rem !important;
+  color: $charcoal; // Custom color
 
+}
 // background:  linear-gradient(to right, $dark-purple, rgba(103, 58, 183, 0.7), $light-purple);
 
 /* Chrome, Safari, Edge, Opera */

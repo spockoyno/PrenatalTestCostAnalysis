@@ -47,7 +47,9 @@
 
 .plot-slider {
   display: flex;
+  flex-direction: column;
   justify-content: center; /* Centers the slider within the div */
+  gap: -2em;
   min-width: 30em; /* Sets the exact width of the slider container */
 }
 
@@ -57,6 +59,7 @@
 
  .card-header {
   display: flex;
+
   //margin-top: -1rem !important;
   justify-content: space-between !important; /* This spreads out the children */
   align-items: flex-start !important;

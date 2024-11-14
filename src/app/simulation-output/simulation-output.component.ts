@@ -17,7 +17,6 @@ import {AsyncPipe, CurrencyPipe, DecimalPipe, formatCurrency, NgIf} from "@angul
 import {round2} from "../DOMAIN/logic";
 import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSlider, MatSliderRangeThumb} from "@angular/material/slider";
-import {findMinAndMax} from "../DOMAIN/initiate";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';

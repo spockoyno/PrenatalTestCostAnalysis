@@ -7,7 +7,9 @@
         <div class="title-wrapper">Simulated costs: Base - Reflex</div>
 
         <div class="plot-slider" >
+          <mat-label>Range  </mat-label>
           <div class="custom-theme" *ngIf="sliderVisible" >
+
             <mat-slider color="warn"
                         [min]="plotRangeInput.controls.lower.value "
                         [max]="plotRangeInput.controls.upper.value"
